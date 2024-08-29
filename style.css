@@ -1,0 +1,191 @@
+/* General Styles */  
+body {  
+    font-family: Arial, sans-serif;  
+    margin: 0;  
+    padding: 0;  
+  }  
+  
+
+  .container {  
+      display: flex;  
+      height: 100vh;  
+    }  
+    
+    /* Sidebar Styles */  
+    .sidebar {  
+        /* background-color: #333;  */
+        color: #fff;  
+        padding: 20px;  
+        width: 200px;  
+    }  
+    .bg-gray-800{
+      background: linear-gradient(to bottom,#4a4949,#1c1c1c); 
+    }
+   .radiussidebar{
+    margin: 1rem;
+    border-radius: 1rem;
+    width: 300px;
+   }
+  .sidebar a {  
+    color: #fff;  
+    text-decoration: none;  
+    display: block;  
+    padding: 10px 0;  
+  }  
+  .logo{
+    padding-left: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 1rem;
+    border-bottom:0.7px solid #fff;
+  }
+
+  .h-8{
+    border-radius: 50%;
+  }
+
+  .navicons{
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .sidebar a:hover {  
+    color: #ccc;  
+  }  
+  
+  /* Main Content Styles */  
+  .main-content {  
+    flex: 1;  
+    padding: 20px;  
+  }  
+  
+  .header {  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    margin-bottom: 20px;  
+  }  
+  
+  .header h1 {  
+    font-size: 24px;  
+    font-weight: bold;  
+  }  
+  
+  .search-input {  
+    padding: 8px 12px;  
+    border: 1px solid #ccc;  
+    border-radius: 4px;  
+    font-size: 14px;  
+  }  
+  
+  .search-input:focus {  
+    outline: none;  
+    border-color: #007bff;  
+  }  
+  
+  .search-icon {  
+    position: absolute;  
+    right: 12px;  
+    top: 50%;  
+    transform: translateY(-50%);  
+    color: #999;  
+  }  
+  
+  .card {  
+    background-color: #fff;  
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+    border-radius: 4px;  
+    padding: 20px;  
+    margin-bottom: 20px;  
+  }  
+  
+  .card h2 {  
+    font-size: 18px;  
+    font-weight: bold;  
+    margin-bottom: 10px;  
+  }  
+  
+  .card p {  
+    margin: 0;  
+  }  
+  
+  .chart {  
+    height: 200px;  
+  }  
+  
+  .projects-table {  
+    width: 100%;  
+    border-collapse: collapse;  
+  }  
+  
+  .projects-table th,  
+  .projects-table td {  
+    padding: 10px;  
+    text-align: left;  
+    border-bottom: 1px solid #ccc;  
+  }  
+  
+  .projects-table th {  
+    background-color: #f5f5f5;  
+  }  
+  
+  .orders-overview {  
+    background-color: #f5f5f5;  
+    padding: 20px;  
+    border-radius: 4px;  
+  }  
+  
+  .orders-overview h3 {  
+    font-size: 16px;  
+    font-weight: bold;  
+    margin-bottom: 10px;  
+  }  
+  
+  .orders-overview ul {  
+    list-style-type: none;  
+    padding: 0;  
+    margin: 0;  
+  }  
+  
+  .orders-overview li {  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    padding: 10px 0;  
+    border-bottom: 1px solid #ccc;  
+  }  
+  
+  .orders-overview li:last-child {  
+    border-bottom: none;  
+  }
+
+  .nav-item {
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    border-radius: 0.3em;
+    /* color: #4a4949; */
+  }
+  
+  .navicons {
+    width: 1.3em; /* Adjusts the icon size to match the text */
+    height: 1.3em; /* Ensures the icon's height is also proportional */
+    margin-left: 15px; /* Adds some space between the icon and text */
+    margin-right: 10px;
+  }
+  
+  a {
+    text-decoration: none; /* Removes the underline from links */
+    color: inherit; /* Ensures the text color matches the parent element */
+  }
+  
+  .space-y-4 > li {
+    margin-bottom: 10px; /* Adds vertical spacing between items */
+  }
+
+  #dashboard{
+    background-image: linear-gradient(195deg, #ec407a, #d81b60);
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(233, 30, 99, .4) !important;
+  }
+  li.nav-item{
+    margin-top: 4px;
+  }

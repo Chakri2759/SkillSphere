@@ -1,0 +1,79 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Skill Sphere</title>  
+  <link rel="stylesheet" href="style.css">  
+  <script src="https://cdn.tailwindcss.com"></script>  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>  
+<body>  
+  <div class="flex h-screen">  
+    <!-- Sidebar -->  
+    <div class="bg-gray-800 text-white p-6 hidden md:block radiussidebar">  
+      <div class="flex items-center mb-8 logo ">  
+        <img src="/assets/logo.png" alt="Skill Sphere Logo" class="h-8 mr-2">  
+        <span class="text-xl font-bold">Skill Sphere</span>  
+      </div>  
+      <nav>  
+        <ul class="space-y-4">  
+          <li class="nav-item" id="dashboard"><img src="/assets/dashboard_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">Dashboard</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">My Courses</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">Virtual Reality</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">Billing</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">RTL</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">Notifications</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">Account Pages</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">Profile</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">Sign In</a></li>  
+          <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400"></a><a href="#" class="hover:text-gray-400">Sign Up</a></li>  
+        </ul> 
+      </nav>  
+      
+    </div>  
+
+    <!-- Main Content -->  
+    <div class="flex-1 p-6">  
+      <header class="flex justify-between items-center mb-6">  
+        <h1 class="text-2xl font-bold">Dashboard</h1>  
+        <div class="flex items-center">  
+          <button class="bg-gray-800 text-white px-4 py-2 rounded-md mr-4 hover:bg-gray-700">  
+            <i class="fas fa-plus mr-2"></i>  
+            New  
+          </button>  
+          <div class="relative">  
+            <input type="text" placeholder="Search..." class="bg-gray-200 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400">  
+            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>  
+          </div>  
+        </div>  
+      </header>  
+
+      <!-- Main Content Sections -->  
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">  
+        <!-- Section 1 -->  
+        <div class="bg-white shadow-md rounded-md p-6">  
+          <h2 class="text-xl font-bold mb-4">Dashboard</h2>  
+          <p>This is the dashboard section of the website.</p>  
+        </div>  
+
+        <!-- Section 2 -->  
+        <div class="bg-white shadow-md rounded-md p-6">  
+          <h2 class="text-xl font-bold mb-4">Tables</h2>  
+          <p>This is the tables section of the website.</p>  
+        </div>  
+
+        <!-- Section 3 -->  
+        <div class="bg-white shadow-md rounded-md p-6">  
+          <h2 class="text-xl font-bold mb-4">Billing</h2>  
+          <p>This is the billing section of the website.</p>  
+        </div>  
+
+          
+      </div>  
+    </div>  
+  </div>  
+</body>  
+</html>
