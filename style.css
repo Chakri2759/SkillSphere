@@ -60,37 +60,7 @@ body {
     padding: 20px;  
   }  
   
-  .header {  
-    display: flex;  
-    justify-content: space-between;  
-    align-items: center;  
-    margin-bottom: 20px;  
-  }  
-  
-  .header h1 {  
-    font-size: 24px;  
-    font-weight: bold;  
-  }  
-  
-  .search-input {  
-    padding: 8px 12px;  
-    border: 1px solid #ccc;  
-    border-radius: 4px;  
-    font-size: 14px;  
-  }  
-  
-  .search-input:focus {  
-    outline: none;  
-    border-color: #007bff;  
-  }  
-  
-  .search-icon {  
-    position: absolute;  
-    right: 12px;  
-    top: 50%;  
-    transform: translateY(-50%);  
-    color: #999;  
-  }  
+
   
   .card {  
     background-color: #fff;  
@@ -167,6 +137,11 @@ body {
     border-radius: 0.3em;
     /* color: #4a4949; */
   }
+
+  .nav-item:hover{
+    background-color: #aaa; /* Lighter hover color */
+    
+  }
   
   .navicons {
     width: 1.3em;  
@@ -177,7 +152,7 @@ body {
   
   a {
     text-decoration: none; /* Removes the underline from links */
-    color: inherit; /* Ensures the text color matches the parent element */
+    /* color: inherit; Ensures the text color matches the parent element */
   }
   
   .space-y-4 > li {
@@ -419,10 +394,10 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .wrapper {
-  max-width: 90%;
-  width: 310px;
+  /* max-width: 90%; */
+  width: 100%;
   height: auto;
-  background: #fff;
+  background: linear-gradient(to bottom,#4a4949,#1c1c1c); 
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
   margin: 15px 0; /* Adjusted margin to align with right alignment */
@@ -444,7 +419,7 @@ header .icons span {
   width: 38px;
   margin: 0 5px;
   cursor: pointer;
-  color: #878787;
+  color: #fff;
   text-align: center;
   line-height: 38px;
   font-size: 1.9rem;
@@ -459,6 +434,7 @@ header .icons span:hover {
 header .current-date {
   font-size: 1.1rem;
   font-weight: 500;
+  color: #fff;
 }
 
 .calendar {
@@ -476,10 +452,11 @@ header .current-date {
   font-weight: 500;
   cursor: default;
   width: calc(100% / 7);
+  color: #fff;
 }
 
 .calendar .days li {
-  color: #333;
+  color: #fff;
   width: calc(100% / 7);
   font-size: 1rem;
   z-index: 1;
@@ -508,21 +485,25 @@ header .current-date {
   transform: translate(-50%, -50%);
 }
 
+
+
+
 .week-day {
   font-size: 0.9rem;
 }
 
 .days li.active::before {
-  background: #9B59B6;
+  background: #da1b61;
 }
 
 .days li:not(.active):hover::before {
-  background: #0fba54;
+  background: #ec407a;
 }
 
 .similar-courses {
-  max-width: 90%;
-  width: 300px;
+  /* max-width: 90%;
+   */
+  width: 100%;
   height: auto;
   background-color: white;
   border-radius: 10px;
@@ -568,4 +549,72 @@ header .current-date {
 
 .course {
   margin-bottom: 0.5rem;
+}
+
+.schedule-card {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 250px; /* Adjust based on content */
+  max-height: 300px; /* To handle overflow content */
+  overflow-y: auto;
+  display: none; /* Initially hidden */
+  z-index: 1000; /* Ensure it's above other content */
+  /* Ensure card positions correctly */
+  pointer-events: none; /* Avoid interference with hover events */
+  box-sizing: border-box;
+}
+.schedule-card h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.schedule-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+
+/* Search bar  */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  transition: width 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-icon img{
+  width: 2rem;
+  height: 2rem;
+}
+
+/* For mobile screens */
+@media (max-width: 600px) {
+  .search-box input {
+      width: 40px; /* Initially small */
+      padding: 5px;
+  }
+
+  .search-container.active .search-box input {
+      width: 100%; /* Expands when clicked */
+  }
+
+  .search-icon {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+  }
 }

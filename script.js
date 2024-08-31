@@ -99,3 +99,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+// Search bar custimization
+const searchIcon = document.querySelector('.search-icon');
+const searchInput = document.querySelector('.search-box input');
+
+searchIcon.addEventListener('click', function() {
+    const searchContainer = document.querySelector('.search-container');
+    searchContainer.classList.toggle('active');
+
+    if (searchContainer.classList.contains('active')) {
+        searchInput.placeholder = ''; // Clear placeholder on expansion
+        searchInput.focus(); // Focus on input when expanded
+    } else {
+        searchInput.placeholder = 'Search....'; // Restore placeholder on shrink
+        searchInput.blur(); // Blur input when shrunk
+    }
+});
+
+searchInput.addEventListener('blur', function() {
+    if (window.innerWidth <= 600) {
+        searchInput.placeholder = 'Search....'; // Restore placeholder if clicked outside
+    }
+});
+

@@ -4,13 +4,10 @@
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Skill Sphere</title>  
-  <link rel="stylesheet" href="style.css">  
-  <script src="https://cdn.tailwindcss.com"></script>  
-  <!-- <link rel="stylesheet" href="calender.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     Google Font Link for Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <script src="calender.js" defer></script>
+  <link rel="stylesheet" href="style.css">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Google Font Link for Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -28,10 +25,10 @@
           <!-- nav keys up -->
           <div>
             <ul class="space-y-4">  
-              <li class="nav-item" id="dashboard"><img src="/assets/dashboard_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">Dashboard</a></li>  
-              <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">My Courses</a></li>  
-              <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">Learning</a></li>  
-              <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">Cart</a></li>  
+              <li class="nav-item" id="dashboard"><img src="/assets/dashboard_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Dashboard</a></li>  
+              <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">My Courses</a></li>  
+              <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Learning</a></li>  
+              <li class="nav-item"><img src="/assets/create_new_folder_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Cart</a></li>  
             </ul>
           </div> 
           <!-- Analysis -->
@@ -47,9 +44,9 @@
           <!-- nav keys bottom -->
           <div class="mt-8">
             <ul class="space-y-4">  
-              <li class="nav-item"><img src="/assets/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">Profile</a></li>  
-              <li class="nav-item"><img src="/assets/settings_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">Settings</a></li>  
-              <li class="nav-item"><img src="/assets/exit_to_app_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="hover:text-gray-400">Log Out</a></li>  
+              <li class="nav-item"><img src="/assets/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Profile</a></li>  
+              <li class="nav-item"><img src="/assets/settings_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Settings</a></li>  
+              <li class="nav-item"><img src="/assets/exit_to_app_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Log Out</a></li>  
             </ul> 
           </div>
         </div>
@@ -67,10 +64,14 @@
               <img src="/assets/notifications_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="">
             </div>  
           </button>
-          <div class="relative">  
-            <input type="text" placeholder="Search..." class="search">  
-            <i class="fas fa-search absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"></i>  
-          </div> 
+          <div class="search-container relative">
+            <div class="search-box">
+                <input type="text" placeholder="Search....">
+            </div>
+            <div class="search-icon">
+                <img src="/assets/search_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Search Icon">
+            </div>
+          </div>
           <div class="Profile-pic">
             <div class="profile-img">
               <img src="/assets/profile.jpg" alt="">
@@ -96,7 +97,9 @@
               <h1>Welcome, Devara!</h1>
               <p>Today is a great day to conduct learning activities</p>
             </div>
-            <div class="badge"></div>
+            <div class="badge">
+
+            </div>
             <div class="course-details">
               <h2>Current Courses</h2>
               <a href="#">View all</a>
@@ -141,6 +144,7 @@
                     <li class="week-day">Sat</li>
                   </ul>
                   <ul class="days"></ul>
+                  <div class="schedule-card" id="scheduleCard"></div>
                 </div>
               </div>
               <div class="similar-courses">
@@ -158,6 +162,8 @@
         </div>
       </main>
       <!--Rightsidebar-->
-      
 </body>  
+<script src="script.js"></script>
+<script src="https://cdn.tailwindcss.com"></script> 
+<script src="calender.js" defer></script>
 </html>

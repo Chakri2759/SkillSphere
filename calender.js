@@ -53,3 +53,50 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 });
+
+const scheduleCard = document.getElementById('scheduleCard');
+
+daysTag.addEventListener('mouseover', (e) => {
+  if (e.target.tagName === 'LI' && !e.target.classList.contains('inactive')) {
+    const day = e.target.textContent;
+    const month = months[currMonth];
+    const year = currYear;
+
+    // You can customize the content based on the day, month, and year.
+    // Here, we'll just show a placeholder schedule
+    const scheduleContent = `
+      <h4>Schedule for ${month} ${day}, ${year}</h4>
+      <p>9:00 AM - Introduction</p>
+      <p>11:00 AM - Workshop</p>
+      <p>2:00 PM - Project Discussion</p>
+    `;
+
+            scheduleCard.innerHTML = scheduleContent;
+            scheduleCard.style.display = 'block';
+            // Get the card's dimensions and the viewport width
+            const cardWidth = scheduleCard.offsetWidth;
+            const cardHeight = scheduleCard.offsetHeight;
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate the position based on mouse coordinates
+            let leftPosition = e.pageX + 15;
+            let topPosition = e.pageY + 15;
+
+            // Adjust the position if the card would overflow the viewport
+            if (leftPosition + cardWidth > viewportWidth) {
+                leftPosition = e.pageX - cardWidth - 15;
+            }
+            if (topPosition + cardHeight > viewportHeight) {
+                topPosition = e.pageY - cardHeight - 15;
+            }
+
+            // Apply the calculated positions
+            scheduleCard.style.left = `${leftPosition}px`;
+            scheduleCard.style.top = `${topPosition}px`;
+  }
+});
+
+daysTag.addEventListener('mouseout', () => {
+  scheduleCard.style.display = 'none';
+});
