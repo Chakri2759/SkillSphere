@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage Purpose Page</title>
+    <link rel="stylesheet" href="/usage.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Skill Sphere</h1>
+    </div>
+    <div class="purpose">
+        <div class="student">
+            <h2>For Students</h2>
+            <!-- Changed the form action to /user/student/login -->
+            <form action="/user/student/login" method="GET">
+                <button id="studentBtn" type="submit">Login / Signin</button>
+            </form>
+        </div>
+        <div class="teacher">
+            <h2>For Teachers</h2>
+            <!-- Assuming you have a different route for teachers -->
+            <form action="/user/teacher/login" method="GET">
+                <button id="teacherBtn" type="submit">Login / Signin</button>
+            </form>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+</html>
