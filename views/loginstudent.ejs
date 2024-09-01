@@ -21,8 +21,10 @@
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="password"/>
+            <input type="password" placeholder="Password" id="signInPassword" />
+            <i class="fas fa-eye-slash togglePassword" aria-hidden="true" id="toggleSignInPassword"></i>
           </div>
+
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
@@ -51,9 +53,11 @@
             <input type="email" placeholder="Email" name="email"/>
           </div>
           <div class="input-field">
-            <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" name="password"/>
-          </div>
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Password" id="signUpPassword" />
+              <i class="fas fa-eye-slash togglePassword" aria-hidden="true" id="toggleSignUpPassword"></i>
+            </div>
+
           <input type="submit" class="btn" value="Sign up" />
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
@@ -116,6 +120,25 @@
     sign_in_btn.addEventListener("click", () => {
       container.classList.remove("sign-up-mode");
     });
+
+    function setupTogglePassword(toggleId, passwordId) {
+  const togglePassword = document.querySelector(`#${toggleId}`);
+  const password = document.querySelector(`#${passwordId}`);
+
+  togglePassword.addEventListener("click", function () {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+
+    // Toggle the icon
+    this.classList.toggle("fa-eye");
+    this.classList.toggle("fa-eye-slash");
+  });
+}
+
+// Initialize toggle functionality for each form
+setupTogglePassword("toggleSignInPassword", "signInPassword");
+setupTogglePassword("toggleSignUpPassword", "signUpPassword");
+setupTogglePassword("toggleConfirmPassword", "confirmPassword");
   </script>
 </body>
 

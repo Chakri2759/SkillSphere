@@ -25,10 +25,10 @@
           <!-- nav keys up -->
           <div>
             <ul class="space-y-4">  
-              <li class="nav-item" id="home"><img src="/assets/home_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Home</a></li>  
-              <li class="nav-item" id="dashboard"><img src="/assets/dashboard_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Dashboard</a></li>  
-              <li class="nav-item" id="courses"><img src="/assets/library_books_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Courses</a></li>  
-              <li class="nav-item" id="mylearning"><img src="/assets/insert_chart_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">My Learning</a></li>  
+              <li class="nav-item" id="home"><img src="/assets/home1.png" alt="" class="navicons"><a href="#" class="">Home</a></li>  
+              <li class="nav-item" id="dashboard"><img src="/assets/dashboard.png" alt="" class="navicons"><a href="#" class="">Dashboard</a></li>  
+              <li class="nav-item" id="courses"><img src="/assets/librarybooks.png" alt="" class="navicons"><a href="#" class="">Courses</a></li>  
+              <li class="nav-item" id="mylearning"><img src="/assets/insertchart.png" alt="" class="navicons"><a href="#" class="">My Learning</a></li>  
             </ul>
           </div> 
           <!-- Analysis -->
@@ -44,9 +44,9 @@
           <!-- nav keys bottom -->
           <div class="mt-8">
             <ul class="space-y-4">  
-              <li class="nav-item"><img src="/assets/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Profile</a></li>  
-              <li class="nav-item"><img src="/assets/settings_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Settings</a></li>  
-              <li class="nav-item"><img src="/assets/exit_to_app_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="" class="navicons"><a href="#" class="">Log Out</a></li>  
+              <li class="nav-item"><img src="/assets/person (1).png" alt="" class="navicons"><a href="#" class="">Profile</a></li>  
+              <li class="nav-item"><img src="/assets/settings.png" alt="" class="navicons"><a href="#" class="">Settings</a></li>  
+              <li class="nav-item"><img src="/assets/logout.png" alt="" class="navicons"><a href="#" class="">Log Out</a></li>  
             </ul>  
           </div>
         </div>
@@ -98,7 +98,11 @@
               <p>Today is a great day to conduct learning activities</p>
             </div>
             <div class="badge">
-
+              <div class="Achievements"><h1>My Achievements</h1></div>
+              <div class="badge_img">
+                <img src="/Jarvis/assets/Gold_badge.png">
+                <img src="/Jarvis/assets/diamond_badge.png">
+              </div>
             </div>
             <div class="course-details">
               <h2>Current Courses</h2>
@@ -106,24 +110,43 @@
             </div>
             <div class="container">
               <div class="course-1">
-                <div class="progressBar">
-                  <p>70%</p>
+                <div class="circular-loader 1">
+                  <svg class="loader-svg" viewBox="0 0 36 36">
+                    <path class="loader-bg"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="loader-progress"
+                          stroke-dasharray="0, 100"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  </svg>
+                  <div class="loader-text">
+                    <span id="loader-percentage">60%</span>
+                  </div>
                 </div>
-                <div class="progressDetails"></div>
+                <div class="progressDetails">
+                  <p>Your course progress till now</p>
+                </div>
               </div>
               <div class="course-2">
-                <div class="progressBar">
-                  <p>70%</p>
+                <div class="circular-loader 2">
+                  <svg class="loader-svg" viewBox="0 0 36 36">
+                    <path class="loader-bg"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="loader-progress"
+                          stroke-dasharray="0, 100"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  </svg>
+                  <div class="loader-text">
+                    <span id="loader-percentage">0%</span>
+                  </div>
                 </div>
-                <div class="progressDetails"></div>
+                <div class="progressDetails">
+                  <p>your course progress till now</p>
+                </div>
               </div>
             </div>
             <div class="container upcomingcourses">
               <div class="course-1"></div>
               <div class="course-2"></div>
-            </div>
-            <div>
-              lorem1000
             </div>
           </div>
           <div class="sideSpace">

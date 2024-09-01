@@ -8,6 +8,8 @@ body {
 }  
 
 
+
+
 .container {  
     display: flex;  
     height: 100vh;  
@@ -20,13 +22,16 @@ body {
       padding: 20px;  
       width: 200px;  
   }  
-  .bg-gray-800{
+.bcg{
     /* background: linear-gradient(to bottom,#4a4949,#1c1c1c);  */
-    background-color:rgb(31 41 55 / var(--tw-bg-opacity)); 
+    /* background-color:rgb(31 41 55 );  */
+    background-color: #fff;
   }
  .radiussidebar{
+  margin: 0;
   margin: 1rem;
   border-radius: 1rem;
+  box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.4);
   width: 300px;
  }
 .sidebar a {  
@@ -39,9 +44,8 @@ body {
   padding-left: 0.5rem;
   padding-top: 0.3rem;
   padding-bottom: 1rem;
-  border-bottom:0.7px solid #fff;
+  border-bottom:1.3px solid black;
 }
-
 
 
 .navicons{
@@ -55,8 +59,10 @@ body {
 
 /* Main Content Styles */  
 .main-content {  
-  flex: 1;  
-  padding: 20px;  
+    flex: 1; /* Adjust according to sidebar width + padding */
+    padding: 20px;
+    height: 100vh; /* Full height of the viewport */
+    overflow-y: auto; /* Allows vertical scrolling */
 }  
 
 
@@ -156,11 +162,11 @@ a {
 
 .space-y-4 > li {
   margin-bottom: 10px; /* Adds vertical spacing between items */
-  color: #fff;
+  color: black;
   font-weight: 550;
 }
 
-#dashboard{
+#home{
   /* background-image: linear-gradient(to left, #5158e1, #0080ff); */
   background-color: #0080ff;
   color: white;
@@ -224,7 +230,7 @@ color: #4a4949;
 
 .upgrade-button:hover{
 color: #fff;
-background-color: rgb(31 41 55 / var(--tw-bg-opacity)); 
+background-color:#4d9ae8; 
 }
 
 .notification{
@@ -303,6 +309,45 @@ padding-left: 0.7px;
 padding-top: 0.5px;
 }
 
+/* Search bar  */
+
+.search-container {
+display: flex;
+align-items: center;
+position: relative;
+}
+
+.search-box input {
+width: 100%;
+padding: 10px;
+transition: width 0.3s ease;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.search-icon img{
+width: 2rem;
+height: 2rem;
+}
+
+/* For mobile screens */
+@media (max-width: 600px) {
+.search-box input {
+    width: 40px; /* Initially small */
+    padding: 5px;
+}
+
+.search-container.active .search-box input {
+    width: 100%; /* Expands when clicked */
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+}
+
 
 
 /* Search bar  */
@@ -351,7 +396,8 @@ padding-top: 0.5px;
     display: flex;
     flex-direction: column;
     padding: 0px;
-    width: 100%;
+    overflow: scroll;
+    width: 99%;
 }
 .main-content div{
     padding-top: 0.5rem;
@@ -394,6 +440,7 @@ padding-top: 0.5px;
 
 .explore-courses-statement div p{
     font-size: 1.4rem;
+    padding-bottom: 1rem;
 }
 
 .explore-courses-statement div a{
@@ -409,12 +456,13 @@ padding-top: 0.5px;
   position: relative;
   gap:1.5rem;
   /* background:linear-gradient(to bottom,rgb(44, 43, 43),rgb(81, 81, 81)); */
-  background-color: #ece9e9;
-  border-radius: 1rem;
+  background-color: #fff;
+  border-radius:0.5rem;
   }
 
   .course-card{
     padding: 1rem;
+    /* border-radius: 2rem; */
     /* box-shadow: 0 10px 20px rgba(97, 95, 95, 0.1); */
   }
   .course-card img{
@@ -430,18 +478,21 @@ padding-top: 0.5px;
   }
 
 .button-box{
-  background-color: #fff;
-  width: 30%;
-  height: 15%;
+  color: #fff;
+  background-color: #0080ff;
+  width: 28%;
+  height: 12%;
   display: flex;
+  margin: 0.3rem;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid white;
+  border-radius: 0.5rem;
 }
 
 
 .button-box button{
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 600;
   padding-bottom: 0.6rem;
 }
