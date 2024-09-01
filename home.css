@@ -1,302 +1,306 @@
 /* General Styles */ 
-/* /sidebar and nav/  */
+/*sidebar and nav*/ 
 body {  
-    font-family: Arial, sans-serif;  
-    margin: 0;  
-    padding: 0;  
-    background-color: #ece9e9;
-  }  
-  
+  font-family:"poppins", sans-serif;
+  margin: 0;  
+  padding: 0;  
+  background-color: #fff;
+}  
 
-  .container {  
-      display: flex;  
-      height: 100vh;  
-    }  
-    
-    /* Sidebar Styles */  
-    .sidebar { 
-        /* background-color: #333;  */
-        color: #fff;  
-        padding: 20px;  
-        width: 200px;  
-    }  
-    .bg-gray-800{
-      background: linear-gradient(to bottom,#4a4949,#1c1c1c); 
-    }
-   .radiussidebar{
-    margin: 1rem;
-    border-radius: 1rem;
-    width: 300px;
-   }
-  .sidebar a {  
-    color: #fff;  
-    text-decoration: none;  
-    display: block;  
-    padding: 10px 0;  
-  }  
-  .logo{
-    padding-left: 0.5rem;
-    padding-top: 0.3rem;
-    padding-bottom: 1rem;
-    border-bottom:0.7px solid #fff;
-  }
 
-  .h-8{
-    border-radius: 50%;
-  }
-
-  .navicons{
-    width: 1rem;
-    height: 1rem;
-  }
-  
-  .sidebar a:hover {  
-    color: #ccc;  
-  }  
-  
-  /* Main Content Styles */  
-  .main-content {  
-    flex: 1;  
-    padding: 20px;  
-  }  
-  
-
-  
-  .card {  
-    background-color: #fff;  
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
-    border-radius: 4px;  
-    padding: 20px;  
-    margin-bottom: 20px;  
-  }  
-  
-  .card h2 {  
-    font-size: 18px;  
-    font-weight: bold;  
-    margin-bottom: 10px;  
-  }  
-  
-  .card p {  
-    margin: 0;  
-  }  
-  
-  .chart {  
-    height: 200px;  
-  }  
-  
-  .projects-table {  
-    width: 100%;  
-    border-collapse: collapse;  
-  }  
-  
-  .projects-table th,  
-  .projects-table td {  
-    padding: 10px;  
-    text-align: left;  
-    border-bottom: 1px solid #ccc;  
-  }  
-  
-  .projects-table th {  
-    background-color: #f5f5f5;  
-  }  
-  
-  .orders-overview {  
-    background-color: #f5f5f5;  
-    padding: 20px;  
-    border-radius: 4px;  
-  }  
-  
-  .orders-overview h3 {  
-    font-size: 16px;  
-    font-weight: bold;  
-    margin-bottom: 10px;  
-  }  
-  
-  .orders-overview ul {  
-    list-style-type: none;  
-    padding: 0;  
-    margin: 0;  
-  }  
-  
-  .orders-overview li {  
+.container {  
     display: flex;  
-    justify-content: space-between;  
-    align-items: center;  
-    padding: 10px 0;  
-    border-bottom: 1px solid #ccc;  
+    height: 100vh;  
   }  
   
-  .orders-overview li:last-child {  
-    border-bottom: none;  
+  /* Sidebar Styles */  
+  .sidebar {  
+      /* background-color: #333;  */
+      color: #fff;  
+      padding: 20px;  
+      width: 200px;  
+  }  
+  .bg-gray-800{
+    /* background: linear-gradient(to bottom,#4a4949,#1c1c1c);  */
+    background-color:rgb(31 41 55 / var(--tw-bg-opacity)); 
   }
+ .radiussidebar{
+  margin: 1rem;
+  border-radius: 1rem;
+  width: 300px;
+ }
+.sidebar a {  
+  color: #fff;  
+  text-decoration: none;  
+  display: block;  
+  padding: 10px 0;  
+}  
+.logo{
+  padding-left: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 1rem;
+  border-bottom:0.7px solid #fff;
+}
 
-  .nav-item {
-    height: 2.2rem;
-    display: flex;
-    align-items: center;
-    border-radius: 0.3em;
-    /* color: #4a4949; */
-  }
 
-  .nav-item:hover{
-    background-color: #aaa; /* Lighter hover color */
-    
-  }
+
+.navicons{
+  width: 1rem;
+  height: 1rem;
+}
+
+.sidebar a:hover {  
+  color: #ccc;  
+}  
+
+/* Main Content Styles */  
+.main-content {  
+  flex: 1;  
+  padding: 20px;  
+}  
+
+
+
+.card {  
+  background-color: #fff;  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+  border-radius: 4px;  
+  padding: 20px;  
+  margin-bottom: 20px;  
+}  
+
+.card h2 {  
+  font-size: 18px;  
+  font-weight: bold;  
+  margin-bottom: 10px;  
+}  
+
+.card p {  
+  margin: 0;  
+}  
+
+.chart {  
+  height: 200px;  
+}  
+
+.projects-table {  
+  width: 100%;  
+  border-collapse: collapse;  
+}  
+
+.projects-table th,  
+.projects-table td {  
+  padding: 10px;  
+  text-align: left;  
+  border-bottom: 1px solid #ccc;  
+}  
+
+.projects-table th {  
+  background-color: #f5f5f5;  
+}  
+
+.orders-overview {  
+  background-color: #f5f5f5;  
+  padding: 20px;  
+  border-radius: 4px;  
+}  
+
+.orders-overview h3 {  
+  font-size: 16px;  
+  font-weight: bold;  
+  margin-bottom: 10px;  
+}  
+
+.orders-overview ul {  
+  list-style-type: none;  
+  padding: 0;  
+  margin: 0;  
+}  
+
+.orders-overview li {  
+  display: flex;  
+  justify-content: space-between;  
+  align-items: center;  
+  padding: 10px 0;  
+  border-bottom: 1px solid #ccc;  
+}  
+
+.orders-overview li:last-child {  
+  border-bottom: none;  
+}
+
+.nav-item {
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.3em;
+  /* color: #4a4949; */
+}
+
+.nav-item:hover{
+  background-color: rgb(170, 170, 170,0.3); /* Lighter hover color */
   
-  .navicons {
-    width: 1.3em;  
-    height: 1.3em; 
-    margin-left: 15px; /* Adds some space between the icon and text */
-    margin-right: 10px;
-  }
-  
-  ul a {
-    text-decoration: none; /* Removes the underline from links */
-    /* color: inherit; Ensures the text color matches the parent element */
-  }
-  
-  .space-y-4 > li {
-    margin-bottom: 10px; /* Adds vertical spacing between items */
-  }
+}
 
-  #home{
-    background-image: linear-gradient(195deg, #ec407a, #da1b61);
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(233, 30, 99, .4) !important;
-  }
-  li.nav-item{
-    margin-top: 4px;
-  }
+.navicons {
+  width: 1.3em;  
+  height: 1.3em; 
+  margin-left: 15px; /* Adds some space between the icon and text */
+  margin-right: 10px;
+}
 
-  .sidebar-divide {
-    display: flex;
-    flex-direction: column; /* Keeps the sections stacked vertically */
-    justify-content: space-between; /* Ensures even spacing between the sections */
-    height: 100%; /* Optional: ensures the sidebar fills the full height of its container */
+a {
+  text-decoration: none; /* Removes the underline from links */
+  /* color: inherit; Ensures the text color matches the parent element */
+}
+
+.space-y-4 > li {
+  margin-bottom: 10px; /* Adds vertical spacing between items */
+  color: #fff;
+  font-weight: 550;
+}
+
+#dashboard{
+  /* background-image: linear-gradient(to left, #5158e1, #0080ff); */
+  background-color: #0080ff;
+  color: white;
+  /* box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(233, 30, 99, .4) !important; */
+}
+li.nav-item{
+  margin-top: 4px;
+}
+
+.sidebar-divide {
+  display: flex;
+  flex-direction: column; /* Keeps the sections stacked vertically */
+  justify-content: space-between; /* Ensures even spacing between the sections */
+  height: 100%; /* Optional: ensures the sidebar fills the full height of its container */
 }
 
 .analysis{
-  /* background-color: #ec407a; */
-  background: linear-gradient(to left,rgb(44, 43, 43),rgb(81, 81, 81));
-  border-radius: 10px;
-  width: 80%;
-  height: inherit;
-  padding: 0.5em;
-  margin-left: 1rem;
-  border: 0.1px solid #ffffff;
+/* background-color: #ec407a; */
+background: linear-gradient(192deg,#0080ff,#1d0dcf);
+border-radius: 10px;
+width: 80%;
+height: inherit;
+padding: 0.5em;
+margin-left: 1rem;
+border: 0.1px solid #ffffff;
 }
 
 .upgrade-para{
-  margin-top: 2rem;
+margin-top: 2rem;
 }
 #first-anlysis{
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom:1px;
+font-size: 1.5rem;
+font-weight: 600;
+margin-bottom:1px;
 }
 .Upgrade{
-  width: 50%;
-  height: 10%;
-  background-color: #fff;
+width: 50%;
+height: 10%;
+background-color: #fff;
 }
 
 .upgrade-button{
-  background-color: #fff; /* Equivalent to bg-blue-500 */
-  color: #000000; /* Equivalent to text-white */
+background-color: #fff; /* Equivalent to bg-blue-500 */
+color: #000000; /* Equivalent to text-white */
+padding-left: 1rem; /* Equivalent to px-4 */
+padding-right: 1rem; /* Equivalent to px-4 */
+padding-top: 0.5rem; /* Equivalent to py-2 */
+padding-bottom: 0.5rem; /* Equivalent to py-2 */
+border-radius: 0.375rem; /* Equivalent to rounded-md */
+text-align: center; /* Center the text */
+display: inline-block; /* Make the button inline-block for centering */
+width: 60%; /* Set button width to 60% *//* Center the button horizontally */
+transition: background-color 0.2s ease-in-out;
+margin-left: 20%;
+font-weight: 500;
+}
+
+.Upgrade p {
+color: #4a4949;
+}
+
+.upgrade-button:hover{
+color: #fff;
+background-color: rgb(31 41 55 / var(--tw-bg-opacity)); 
+}
+
+.notification{
+background-color: #2d3748; /* Equivalent to bg-gray-800 */
+color: #ffffff; /* Equivalent to text-white */
+/* Equivalent to py-2 */
+border-radius: 0.375rem; /* Equivalent to rounded-md */
+margin-top: 0.3rem;
+margin-right: 1rem; /* Equivalent to mr-4 */
+text-align: center; /* Optional: center text horizontally */
+display: inline-block; /* Make button inline-block for alignment */
+transition: background-color 0.2s ease-in-out; 
+width: 2.8rem;
+height: 2.8rem;
+padding-top: 0.5rem;
+padding-left: 0.49rem;
+}
+
+.notification img{
+width: 1.8rem;
+height: 1.8rem;
+}
+
+.search{
+  background-color: #edf2f7; /* Equivalent to bg-gray-200 */
   padding-left: 1rem; /* Equivalent to px-4 */
   padding-right: 1rem; /* Equivalent to px-4 */
   padding-top: 0.5rem; /* Equivalent to py-2 */
   padding-bottom: 0.5rem; /* Equivalent to py-2 */
   border-radius: 0.375rem; /* Equivalent to rounded-md */
-  text-align: center; /* Center the text */
-  display: inline-block; /* Make the button inline-block for centering */
-  width: 60%; /* Set button width to 60% // Center the button horizontally */
-  transition: background-color 0.2s ease-in-out;
-  margin-left: 20%;
-  font-weight: 500;
-}
-
-.Upgrade p {
-  color: #4a4949;
-}
-
-.upgrade-button:hover{
-  background-color: #da1b61; 
-}
-
-.notification{
-  background-color: #2d3748; /* Equivalent to bg-gray-800 */
-  color: #ffffff; /* Equivalent to text-white */
- /* Equivalent to py-2 */
-  border-radius: 0.375rem; /* Equivalent to rounded-md */
-  margin-right: 1rem; /* Equivalent to mr-4 */
-  text-align: center; /* Optional: center text horizontally */
-  display: inline-block; /* Make button inline-block for alignment */
-  transition: background-color 0.2s ease-in-out; 
-  width: 2.5rem;
-  height: 2.5rem;
-  padding-top: 0.5rem;
-  padding-left: 0.49rem;
-}
-
-.notification img{
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.search{
-    background-color: #edf2f7; /* Equivalent to bg-gray-200 */
-    padding-left: 1rem; /* Equivalent to px-4 */
-    padding-right: 1rem; /* Equivalent to px-4 */
-    padding-top: 0.5rem; /* Equivalent to py-2 */
-    padding-bottom: 0.5rem; /* Equivalent to py-2 */
-    border-radius: 0.375rem; /* Equivalent to rounded-md */
-    border: 1px solid transparent; /* Set initial border to transparent */
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    border-color: #999; /* Smooth transitions for focus state */
+  border: 1px solid transparent; /* Set initial border to transparent */
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-color: #999; /* Smooth transitions for focus state */
 }
 
 .search:focus{
-  outline: black; /* Equivalent to focus:outline-none */
-  border-color: #cbd5e0; /* Equivalent to focus:ring-gray-400 (border color) */
-  box-shadow: 0 0 0 2px #cbd5e0;
+outline: black; /* Equivalent to focus:outline-none */
+border-color: #cbd5e0; /* Equivalent to focus:ring-gray-400 (border color) */
+box-shadow: 0 0 0 2px #cbd5e0;
 }
 
 .Profile-pic{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-left: 1rem;
-  background-color: #ccc;
-  border-radius: 5px;
-  width:10rem ;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+margin-left: 1rem;
+background-color: #ccc;
+border-radius: 5px;
+width:10rem ;
 }
 
-
 .profile-img img{
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.3rem;
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 0.3rem;
 }
 
 .profile-name h5{
-  font-size: 1.2rem;
-  font-weight: 530;
+font-size: 1.2rem;
+font-weight: 530;
 }
 
 .profile-name p{
-  font-size: 0.8rem;
-  font-weight: 200;
+font-size: 0.8rem;
+font-weight: 200;
 }
 
 .next-page{
-  width: 1.2rem;
-  height: 1.2rem;
-  border-radius: 50%;
-  /* background-color: rgb(102, 100, 100); */
-  background-color:#ccc;
-  margin-right: 0.5rem;
-  padding-left: 0.7px;
-  padding-top: 0.5px;
+width: 1.2rem;
+height: 1.2rem;
+border-radius: 50%;
+/* background-color: rgb(102, 100, 100); */
+background-color:#ccc;
+margin-right: 0.5rem;
+padding-left: 0.7px;
+padding-top: 0.5px;
 }
 
 

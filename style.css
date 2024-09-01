@@ -1,10 +1,10 @@
 /* General Styles */ 
 /*sidebar and nav*/ 
 body {  
-    font-family: Arial, sans-serif;  
+    font-family:"poppins", sans-serif;
     margin: 0;  
     padding: 0;  
-    background-color: #ece9e9;
+    background-color: #fff;
   }  
   
 
@@ -20,8 +20,10 @@ body {
         padding: 20px;  
         width: 200px;  
     }  
-    .bg-gray-800{
-      background: linear-gradient(to bottom,#4a4949,#1c1c1c); 
+.bcg{
+      /* background: linear-gradient(to bottom,#4a4949,#1c1c1c);  */
+      background-color:rgb(31 41 55 ); 
+      /* background-color: #fff; */
     }
    .radiussidebar{
     margin: 1rem;
@@ -41,9 +43,7 @@ body {
     border-bottom:0.7px solid #fff;
   }
 
-  .h-8{
-    border-radius: 50%;
-  }
+ 
 
   .navicons{
     width: 1rem;
@@ -139,7 +139,7 @@ body {
   }
 
   .nav-item:hover{
-    background-color: #aaa; /* Lighter hover color */
+    background-color: rgb(170, 170, 170,0.3); /* Lighter hover color */
     
   }
   
@@ -157,11 +157,15 @@ body {
   
   .space-y-4 > li {
     margin-bottom: 10px; /* Adds vertical spacing between items */
+    color: #fff;
+    font-weight: 550;
   }
 
   #dashboard{
-    background-image: linear-gradient(195deg, #ec407a, #da1b61);
-    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(233, 30, 99, .4) !important;
+    /* background-image: linear-gradient(to left, #5158e1, #0080ff); */
+    background-color: #0080ff;
+    color: white;
+    /* box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .14), 0 7px 10px -5px rgba(233, 30, 99, .4) !important; */
   }
   li.nav-item{
     margin-top: 4px;
@@ -176,7 +180,7 @@ body {
 
 .analysis{
   /* background-color: #ec407a; */
-  background: linear-gradient(to left,rgb(44, 43, 43),rgb(81, 81, 81));
+  background: linear-gradient(192deg,#0080ff,#1d0dcf);
   border-radius: 10px;
   width: 80%;
   height: inherit;
@@ -220,7 +224,8 @@ body {
 }
 
 .upgrade-button:hover{
-  background-color: #da1b61; 
+  color: #fff;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity)); 
 }
 
 .notification{
@@ -228,20 +233,21 @@ body {
   color: #ffffff; /* Equivalent to text-white */
  /* Equivalent to py-2 */
   border-radius: 0.375rem; /* Equivalent to rounded-md */
+  margin-top: 0.3rem;
   margin-right: 1rem; /* Equivalent to mr-4 */
   text-align: center; /* Optional: center text horizontally */
   display: inline-block; /* Make button inline-block for alignment */
   transition: background-color 0.2s ease-in-out; 
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.8rem;
+  height: 2.8rem;
   padding-top: 0.5rem;
   padding-left: 0.49rem;
 }
 
 .notification img{
-  width: 1.5rem;
-  height: 1.5rem;
-}
+  width: 1.8rem;
+  height: 1.8rem;
+  }
 
 .search{
     background-color: #edf2f7; /* Equivalent to bg-gray-200 */
@@ -308,6 +314,7 @@ body {
 .mainSpace{
   width: 70%;
   height: 100vh;
+  overflow: scroll;
   /* background-color: #4a4949; */
 }
 .sideSpace{
@@ -397,7 +404,8 @@ body {
   /* max-width: 90%; */
   width: 100%;
   height: auto;
-  background: linear-gradient(to bottom,#4a4949,#1c1c1c); 
+  background-color: rgb(31 41 55);
+  /* background: linear-gradient(rgb(31 41 55 / var(--tw-bg-opacity)),rgb(31 41 55 / var(--tw-bg-opacity)));  */
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
   margin: 15px 0; /* Adjusted margin to align with right alignment */
@@ -428,7 +436,7 @@ header .icons span {
 }
 
 header .icons span:hover {
-  background: #f2f2f2;
+  background: #0080ff;
 }
 
 header .current-date {
@@ -493,11 +501,11 @@ header .current-date {
 }
 
 .days li.active::before {
-  background: #da1b61;
+  background: #1d0dcf;
 }
 
 .days li:not(.active):hover::before {
-  background: #ec407a;
+  background: #0080ff;
 }
 
 .similar-courses {

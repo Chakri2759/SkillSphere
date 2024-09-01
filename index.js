@@ -7,6 +7,7 @@ const { v4: uuid } = require("uuid");
 const port = 3000;
 
 // Middleware setup
+app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -41,7 +42,7 @@ app.get('/user/teacher/login', (req, res) => {
 
 
 
-// POST request to handle the sign-up form submission
+// POST Sign up route for teacher and students
 app.post('/user/student/signup', (req, res) => {
     const { username, email, password } = req.body;
     let id = uuid();
@@ -77,6 +78,52 @@ app.post('/user/teacher/signup', (req, res) => {
         }
     });
 });
+
+
+
+// POST Sign in route for teacher and students
+
+app.post('/user/student/signin', (req, res) => {
+    const { username, password } = req.body;
+    let q = `SELECT * FROM student WHERE username = ?`;
+    connection.query(q, [username], (err, result) => {
+        if (err) {
+            console.error('Error retrieving user data: ', err);
+            res.status(500).send('An error occurred.');
+        } else if (result.length === 0) {
+            res.send("User not found");
+        } else {
+            let user = result[0];
+            if (password !== user.password) {
+                res.send("Password incorrect");
+            } else {
+                res.send("Login successful");
+            }
+        }
+    });
+});
+
+
+app.post('/user/teacher/signin', (req, res) => {
+    const { username, password } = req.body;
+    let q = `SELECT * FROM teacher WHERE username = ?`;
+    connection.query(q, [username], (err, result) => {
+        if (err) {
+            console.error('Error retrieving user data: ', err);
+            res.status(500).send('An error occurred.');
+        } else if (result.length === 0) {
+            res.send("User not found");
+        } else {
+            let user = result[0];
+            if (password !== user.password) {
+                res.send("Password incorrect");
+            } else {
+                res.send("Login successful");
+            }
+        }
+    });
+});
+
 
 
 
