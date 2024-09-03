@@ -32,11 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle readonly attribute on inputs
     const inputs = profileContainer.querySelectorAll('input');
     inputs.forEach(input => {
-      input.readOnly = !isEditing;
-      if (isEditing) {
-        input.removeAttribute('disabled');
+      if (input.type === 'email') {
+        input.readOnly = true; // Keep email field readonly
+        input.classList.add('readonly');
       } else {
-        input.setAttribute('disabled', 'true');
+        input.readOnly = !isEditing;
+        if (isEditing) {
+          input.removeAttribute('disabled');
+        } else {
+          input.setAttribute('disabled', 'true');
+        }
       }
     });
   });

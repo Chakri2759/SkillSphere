@@ -7,6 +7,8 @@ const { v4: uuid } = require("uuid");
 const session = require('express-session');
 const flash = require('connect-flash');
 
+
+
 // Middleware setup
 app.use(session({
     secret: 'pheonix4151',
@@ -17,6 +19,8 @@ app.use(session({
 app.use(flash());
 
 const port = 3000;
+
+
 
 // Middleware setup
 app.use(express.json());
@@ -159,7 +163,7 @@ app.post('/user/student/signin/:id/:destination', (req, res) => {
                 if (destination === 'logout') {
                     // Handle logout logic here (e.g., destroying the session)
                     res.redirect('http://127.0.0.1:5500/index.html');
-                } else {
+                }else {
                     // Render the appropriate EJS template
                     res.render(`${destination}.ejs`, { user });
                 }
@@ -170,6 +174,67 @@ app.post('/user/student/signin/:id/:destination', (req, res) => {
     });
 });
 
+
+// app.get('/user/student/signin/:id/profile/update',(req,res)=>{
+//     let { id }=req.params;
+//     res.redirect(`'http://localhost:3000/user/student/signin/${ id }/profile'`);
+// })
+
+
+app.patch('/user/student/signin/:id/profile', (req, res) => {
+    const { id } = req.params;
+    const {
+        FirstName,
+        LastName,
+        PhoneNumber,
+        Email,
+        Age,
+        Gender,
+        courseStudy,
+        yearofStudy,
+        college
+    } = req.body;
+    console.log(req.body);
+    const updateQuery = `UPDATE student SET 
+        FirstName = ?, 
+        LastName = ?, 
+        PhoneNumber = ?, 
+        Email = ?, 
+        Age = ?, 
+        Gender = ?, 
+        courseStudy = ?, 
+        yearofStudy = ?, 
+        college = ?
+        WHERE id = ?`;
+
+    connection.query(updateQuery, [
+        FirstName, 
+        LastName, 
+        PhoneNumber, 
+        Email, 
+        Age, 
+        Gender, 
+        courseStudy, 
+        yearofStudy, 
+        college, 
+        id
+    ], (err, result) => {
+        if (err) {
+            console.error('Error updating user data:', err);
+            res.status(500).send('Error updating user data.');
+        } else {
+            const selectQuery = `SELECT * FROM student WHERE id = ?`;
+            connection.query(selectQuery, [id], (err, updatedUser) => {
+                if (err) {
+                    console.error('Error fetching updated user data:', err);
+                    res.status(500).send('Error fetching updated user data.');
+                } else {
+                    res.render('profile.ejs', { user: updatedUser[0] });
+                }
+            });
+        }
+    });
+});
 
 
 // Start the server

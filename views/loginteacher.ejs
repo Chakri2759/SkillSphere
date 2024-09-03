@@ -17,11 +17,11 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" name="username" />
+            <input type="text" placeholder="Username" name="username" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="signInPassword" name="password"/>
+            <input type="password" placeholder="Password" id="signInPassword" name="password" required/>
             <i class="fas fa-eye-slash togglePassword" aria-hidden="true" id="toggleSignInPassword"></i>
           </div>
           <input type="submit" value="Login" class="btn solid" />
@@ -45,15 +45,15 @@
           <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" name="username"/>
+            <input type="text" placeholder="Username" name="username" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-envelope"></i>
-            <input type="email" placeholder="Email" name="email"/>
+            <input type="email" placeholder="Email" name="email" required/>
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="signUpPassword"  name="password"/>
+            <input type="password" placeholder="Password" id="signUpPassword"  name="password" required/>
             <i class="fas fa-eye-slash togglePassword" aria-hidden="true" id="toggleSignUpPassword"></i>
           </div>
           <input type="submit" class="btn" value="Sign up" />
