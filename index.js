@@ -4,6 +4,18 @@ const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
 const { v4: uuid } = require("uuid");
+const session = require('express-session');
+const flash = require('connect-flash');
+
+// Middleware setup
+app.use(session({
+    secret: 'pheonix4151',
+    resave: false,
+    saveUninitialized: true
+}));
+
+app.use(flash());
+
 const port = 3000;
 
 // Middleware setup
@@ -11,6 +23,8 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(path.join(__dirname, "function")));
 
 // EJS setup
 app.set("view engine", "ejs");
@@ -28,8 +42,6 @@ const connection = mysql.createConnection({
 app.get('/', (req, res) => {
     res.render('usage.ejs'); // This is the first page where the user selects their role
 });
-
-
 
 // GET request to render the student login/signup page
 app.get('/user/student/login', (req, res) => {
@@ -52,7 +64,7 @@ app.post('/user/student/signup', (req, res) => {
             console.error('Error inserting user data: ', err);
             res.status(500).send('Error saving user data. Please try again.');
         } else {
-            res.send('User registered successfully!');
+            res.render('shome.ejs');
             console.log(username);
             console.log(id);
             console.log(password);
@@ -95,13 +107,15 @@ app.post('/user/student/signin', (req, res) => {
         } else {
             let user = result[0];
             if (password !== user.password) {
-                res.send("Password incorrect");
+                req.flash('error', 'Username or password is wrong');
+                res.render('loginstudent.ejs');
             } else {
-                res.send("Login successful");
+                res.render('home.ejs',{user});
             }
         }
     });
 });
+
 
 
 app.post('/user/teacher/signin', (req, res) => {
@@ -116,14 +130,45 @@ app.post('/user/teacher/signin', (req, res) => {
         } else {
             let user = result[0];
             if (password !== user.password) {
-                res.send("Password incorrect");
+                incorrect();
             } else {
-                res.send("Login successful");
+                let id=user.id;
+                res.render('dashboard.ejs',{ id });
             }
         }
     });
 });
 
+
+app.post('/user/student/signin/:id/:destination', (req, res) => {
+    let { id, destination } = req.params;
+    console.log(`User ID: ${id}, Destination: ${destination}`);
+
+    let q = `SELECT * FROM student WHERE id = ?`;
+    connection.query(q, [id], (err, result) => {
+        if (err) {
+            console.error('Error retrieving user data: ', err);
+        } else {
+            let user = result[0];
+            console.log(user);
+
+            // Check if the destination corresponds to a valid page
+            const validDestinations = ['dashboard', 'home', 'courses', 'mylearning', 'profile', 'settings', 'logout'];
+
+            if (validDestinations.includes(destination)) {
+                if (destination === 'logout') {
+                    // Handle logout logic here (e.g., destroying the session)
+                    res.redirect('http://127.0.0.1:5500/index.html');
+                } else {
+                    // Render the appropriate EJS template
+                    res.render(`${destination}.ejs`, { user });
+                }
+            } else {
+                res.status(404).send('Page not found');
+            }
+        }
+    });
+});
 
 
 

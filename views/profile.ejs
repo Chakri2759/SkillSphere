@@ -1,0 +1,206 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Skill Sphere</title>  
+  <link rel="stylesheet" href="/studentProf.css">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Google Font Link for Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Karma:wght@300;400;500;600;700&family=Mirza:wght@400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>  
+<body>  
+  <div class="flex h-screen">  
+    <!-- Sidebar -->  
+    <div class="bcg text-white p-6 hidden md:block radiussidebar">  
+      <div class="flex items-center mb-8 logo">  
+        <img src="/logo.png" alt="Skill Sphere Logo" class="h-8 mr-2">
+      </div>  
+      <nav>  
+        <div class="sidebar-divide">
+          <!-- nav keys up -->
+          <div>
+            <ul class="space-y-4">  
+              <li class="nav-item" id="home"><img src=" /home1.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/home" method="post"><button type="submit">Home</button></form></li>  
+              <li class="nav-item" id="dashboard"><img src="/dashboard.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/dashboard" method="post"><button type="submit">Dashboard</button></form></li>  
+              <li class="nav-item" id="courses"><img src="/librarybooks.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/courses" method="post"><button type="submit">Courses</button></form></li>  
+              <li class="nav-item" id="mylearning"><img src="/insertchart.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/mylearning" method="post"><button type="submit">My Learning</button></form></li>  
+            </ul>
+          </div> 
+          <!-- Analysis -->
+          <div class="analysis mt-8">
+                <div class="upgrade-para">
+                    <p id="first-analysis" class="text-lg font-semibold">Analysis</p>
+                    <p class="text-sm text-gray-300">Know your knowledge level</p>
+                </div>
+                <div class="upgrade-button mt-4">
+                    <button>Analysis</button>
+                </div>
+          </div>
+          <!-- nav keys bottom -->
+          <div class="mt-8">
+            <ul class="space-y-4">  
+              <li class="nav-item" id="profile"><img src="/person (1).png" alt="" class="navicons" ><form action="/user/student/signin/<%=user.id %>/profile" method="post"><button type="submit">Profile</button></form></li>  
+              <li class="nav-item"  id="logout"><img src="/logout.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/logout" method="post"><button type="submit">Log out</button></form></li>  
+            </ul>  
+          </div>
+        </div>
+      </nav>    
+      
+    </div>  
+
+    <!-- Main Content -->  
+    <div class="flex-1 p-6">  
+      <header class="flex justify-between items-center mb-6">  
+        <h2 class="text-2xl font-bold">Profile</h2>  
+        <div class="flex items-center">  
+          <button>
+            <div class="notification">  
+              <img src="/notifications_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            </div>  
+          </button>
+          <div class="search-container relative">
+            <div class="search-box">
+                <input type="text" placeholder="Search....">
+            </div>
+            <div class="search-icon">
+                <img src="/search_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Search Icon">
+            </div>
+          </div>
+          <div class="Profile-pic">
+            <div class="profile-img">
+              <img src="/profile.jpg" alt="">
+            </div>
+            <div class="profile-name">
+              <h5>Naruto</h5>
+              <p>Student</p>
+            </div>
+            <div>
+              <div class="next-page">
+                <img src="/blackright.png" alt="">
+              </div>
+            </div>
+          </div> 
+        </div>
+      </header>   
+
+      <!-- Main Content Sections -->  
+       <main>
+        <h1 class="h_in_main">Profile Details</h1>
+        <div class="profile-container">
+          <div class="Details">
+            <!-- Edit Button -->
+            <button type="button" class="edit-button">Edit</button>
+            <form action="">
+              <label for="FullName">First Name</label>
+              <input id="FullName" type="text" name="FirstName" placeholder="Enter your first name" required readonly/>
+              <label for="LastName">Last Name</label>
+              <input id="LastName" type="text" name="LastName" placeholder="Enter your last name" required readonly/> 
+              <label for="PhoneNumber">Phone Number</label>
+              <input id="PhoneNumber" type="number" name="PhoneNumber" placeholder="Enter your phone number" required readonly/>      
+              <label for="Email">Email</label>
+              <input id="Email" type="email" name="Email" placeholder="Enter your email address" required readonly/>    
+              <label for="DOB">DOB</label>
+              <input id="DOB" type="date" name="Age" placeholder="Select your date of birth" readonly/>
+              <label for="Gender">Gender</label>
+              <div class="gender-group">
+                <label for="gender-male">
+                  <input id="gender-male" type="radio" name="Gender" value="Male" checked disabled> Male
+                </label>
+                <label for="gender-female">
+                  <input id="gender-female" type="radio" name="Gender" value="Female" disabled> Female
+                </label>
+                <label for="Not-to-say">
+                  <input id="Not-to-say" type="radio" name="Gender" value="Prefer not to say" disabled> Prefer not to say
+                </label>
+              </div>
+              <label for="courseStudy">Current Course of Study</label>
+              <input id="courseStudy" type="text" name="courseStudy" placeholder="Enter your current course of study" required readonly>
+              <label for="yearofStudy">Year of Study</label>
+              <input id="yearofStudy" type="text" name="yearofStudy" placeholder="Enter your year of study" required readonly>
+              <label for="college">College</label>
+              <input id="college" type="text" name="college" placeholder="Enter your college name" required readonly>
+              <!-- Save Button (initially hidden) -->
+              <button type="submit" class="submit-button hidden">Save & Update</button>
+            </form>
+          </div>
+          <div class="profilePhoto">
+            <div class="image-card" id="imageCard">
+              <img id="preview" src="#" alt="Image Preview"/>
+            </div>
+            <div class="upload-container">
+              <input type="file" id="fileInput" accept="image/*" capture="environment">
+              <label for="fileInput" class="upload-button">Choose Photo to upload</label>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!--Rightsidebar-->
+</body>  
+<script src="https://cdn.tailwindcss.com"></script> 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const editButton = document.querySelector('.edit-button');
+    const submitButton = document.querySelector('.submit-button');
+    const profileContainer = document.querySelector('.profile-container');
+    const fileInput = document.getElementById('fileInput');
+    const imageCard = document.getElementById('imageCard');
+    
+    let isEditing = false;
+  
+    // Set initial state
+    profileContainer.classList.add('readonly-mode');
+    submitButton.classList.add('hidden');
+    fileInput.setAttribute('disabled', 'true');
+  
+    editButton.addEventListener('click', () => {
+      isEditing = !isEditing;
+  
+      if (isEditing) {
+        profileContainer.classList.add('edit-mode');
+        profileContainer.classList.remove('readonly-mode');
+        editButton.textContent = 'Cancel';
+        submitButton.classList.remove('hidden');
+        fileInput.removeAttribute('disabled'); // Enable file input
+      } else {
+        profileContainer.classList.add('readonly-mode');
+        profileContainer.classList.remove('edit-mode');
+        editButton.textContent = 'Edit';
+        submitButton.classList.add('hidden');
+        fileInput.setAttribute('disabled', 'true'); // Disable file input
+      }
+  
+      // Toggle readonly attribute on inputs
+      const inputs = profileContainer.querySelectorAll('input');
+      inputs.forEach(input => {
+        input.readOnly = !isEditing;
+        if (isEditing) {
+          input.removeAttribute('disabled');
+        } else {
+          input.setAttribute('disabled', 'true');
+        }
+      });
+    });
+  
+    fileInput.addEventListener('change', function() {
+      const file = this.files[0];
+  
+      if (file && isEditing) { // Check if editing mode is active
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+          imageCard.style.backgroundImage = url(`${e.target.result}`);
+          imageCard.querySelector('img').src = e.target.result;
+        }
+  
+        reader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
+<script src="/studentProf.js"></script>
+</html>
