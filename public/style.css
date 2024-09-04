@@ -1,12 +1,11 @@
 /* General Styles */ 
 /*sidebar and nav*/ 
 body {  
-    font-family:"poppins", sans-serif;
-    margin: 0px;  
-    padding: 0px;  
-    background-color: #fff;
-  }  
-  
+  font-family:"Inter", sans-serif;
+  margin: 0;  
+  padding: 0;  
+  background-color: #fff;
+}  
 
   .container {  
       display: flex;  
@@ -21,6 +20,9 @@ body {
       padding: 20px;  
       width: 200px;  
     }  
+    header{
+      padding-right: 2rem;
+    }
     .bcg{
       /* background: linear-gradient(to bottom,#4a4949,#1c1c1c);  */
       /* background-color:rgb(31 41 55 );  */

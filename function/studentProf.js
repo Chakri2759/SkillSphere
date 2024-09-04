@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileContainer = document.querySelector('.profile-container');
   const fileInput = document.getElementById('fileInput');
   const imageCard = document.getElementById('imageCard');
+  const imageTag = imageCard.querySelector('img'); // Select the img tag inside imageCard
   
   let isEditing = false;
 
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       reader.onload = function(e) {
         imageCard.style.backgroundImage = `url("${e.target.result}")`;
-        imageCard.querySelector('img').src = e.target.result;
+        imageTag.src = e.target.result; // Update the img tag source
       }
 
       reader.readAsDataURL(file);

@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>  
 <body>  
@@ -37,8 +40,10 @@
                     <p class="text-sm text-gray-300">Know your knowledge level</p>
                 </div>
                 <div class="upgrade-button mt-4">
-                    <button>Analysis</button>
-                </div>
+                  <form action="/user/student/signin/<%=user.id %>/analysis" method="post">
+                    <button type="submit">Analysis</button>
+                  </form>
+              </div>
           </div>
           <!-- nav keys bottom -->
           <div class="mt-8">
@@ -170,17 +175,14 @@
                             </div>
                         </p>
                     </div>
-                    <div class="course-card">
-                        <img src="/course3.jpg" alt="">
-                        <p>
-                            A course that let you learn about the fundementals of c++. 
-                            <div class="button-box">
-                                <button>Enroll Now</button>
-                            </div>
-                        </p>
+                  </div>
+
+                    <div class="explore-button">
+                         <form action="/user/student/signin/<%=user.id %>/courses" method="post">
+                          <button type="submit">Explore Courses</button>
+                        </form>
                     </div>
                    
-                </div>
             </div>
          </div>     
       </main>

@@ -6,7 +6,8 @@ const methodOverride = require("method-override");
 const { v4: uuid } = require("uuid");
 const session = require('express-session');
 const flash = require('connect-flash');
-
+const multer = require('multer');
+const port = 3000;
 
 
 // Middleware setup
@@ -16,11 +17,6 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.use(flash());
-
-const port = 3000;
-
-
 
 // Middleware setup
 app.use(express.json());
@@ -29,7 +25,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "assets")));
 app.use(express.static(path.join(__dirname, "function")));
+app.use('/..uploads', express.static('uploads'));
 
+// app.use('../uploads', express.static(path.join(__dirname, 'uploads')));
 // EJS setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
@@ -111,7 +109,6 @@ app.post('/user/student/signin', (req, res) => {
         } else {
             let user = result[0];
             if (password !== user.password) {
-                req.flash('error', 'Username or password is wrong');
                 res.render('loginstudent.ejs');
             } else {
                 res.render('home.ejs',{user});
@@ -157,7 +154,7 @@ app.post('/user/student/signin/:id/:destination', (req, res) => {
             console.log(user);
 
             // Check if the destination corresponds to a valid page
-            const validDestinations = ['dashboard', 'home', 'courses', 'mylearning', 'profile', 'settings', 'logout'];
+            const validDestinations = ['dashboard', 'home', 'courses', 'mylearning', 'profile', 'settings', 'logout','analysis'];
 
             if (validDestinations.includes(destination)) {
                 if (destination === 'logout') {
@@ -235,6 +232,8 @@ app.patch('/user/student/signin/:id/profile', (req, res) => {
         }
     });
 });
+
+
 
 
 // Start the server
