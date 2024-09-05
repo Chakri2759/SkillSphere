@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Time Tracker</title>
+</head>
+<body>
+    <h1>Topic: Introduction to JavaScript</h1>
+    <p>
+        JavaScript is a programming language that is commonly used in web development...
+    </p>
+
+    <script>
+        // 1. Initialize variables to store time data
+        let startTime, endTime;            // To track the start and end time of reading
+        let totalReadingTime = 0;          // To accumulate the total reading time
+        let lastActivityTime;              // To track the last time the user was active
+        const inactivityThreshold = 60000; // 1 minute of inactivity (in milliseconds)
+
+        // 2. Function to start the reading timer when the page loads
+        function startReading() {
+            startTime = new Date().getTime(); // Capture the current time as the start time
+            lastActivityTime = startTime;     // Initialize last activity time with start time
+            console.log('Reading started at:', new Date(startTime));
+        }
+
+        // 3. Function to stop the reading timer when the page is closed or navigated away
+        function stopReading() {
+            endTime = new Date().getTime(); // Capture the current time as the end time
+            const currentSessionTime = endTime - startTime; // Calculate the session time
+            totalReadingTime += currentSessionTime - getInactiveTime(); // Add to total reading time after subtracting inactive time
+            console.log('Reading ended at:', new Date(endTime));
+            console.log('Total reading time (ms):', totalReadingTime);
+        }
+
+        // 4. Function to update the last activity time whenever the user interacts with the page
+        function updateActivityTime() {
+            lastActivityTime = new Date().getTime(); // Update the last activity time to the current time
+        }
+
+        // 5. Function to calculate inactive time (time when the user was idle)
+        function getInactiveTime() {
+            const currentTime = new Date().getTime(); // Get the current time
+            const inactiveTime = currentTime - lastActivityTime > inactivityThreshold
+                ? currentTime - lastActivityTime // If the user was inactive for longer than the threshold, count it as inactive time
+                : 0; // Otherwise, consider no inactivity
+            return inactiveTime;
+        }
+
+        // 6. Event listeners to detect user activity (mouse, scroll, and key press events)
+        window.addEventListener('mousemove', updateActivityTime);
+        window.addEventListener('scroll', updateActivityTime);
+        window.addEventListener('keydown', updateActivityTime);
+
+        // 7. Start the reading timer when the page is loaded
+        window.addEventListener('load', startReading);
+
+        // 8. Stop the reading timer and potentially send data to the server when the page is unloaded
+        window.addEventListener('beforeunload', () => {
+            stopReading(); 
+            sendReadingTimeToServer(); 
+        });
+
+        // 9. Optional: Function to send the reading time data to a server (backend integration)
+        function sendReadingTimeToServer() {
+            fetch('/save-reading-time', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ readingTime: totalReadingTime }), // Send the total reading time as JSON
+            });
+        }
+    </script>
+</body>
+</html>

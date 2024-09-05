@@ -1,5 +1,5 @@
 /* General Styles */ 
-/*sidebar and nav*/ 
+/* /sidebar and nav/  */
 body {  
   font-family:"Inter", sans-serif;
   margin: 0;  
@@ -254,7 +254,7 @@ body {
   border-radius: 0.375rem; /* Equivalent to rounded-md */
   text-align: center; /* Center the text */
   display: inline-block; /* Make the button inline-block for centering */
-  width: 60%; /* Set button width to 60% *//* Center the button horizontally */
+  width: 60%; /* Set button width to 60% // Center the button horizontally */
   transition: background-color 0.2s ease-in-out;
   margin-left: 20%;
   font-weight: 500;
@@ -385,7 +385,7 @@ body {
 }
 
 
-/*Main Dashboard*/
+/* /Main Dashboard/ */
 /* main-content */
 .totalSpace{
   width: 87%;
@@ -398,16 +398,16 @@ body {
   padding-right: 1.3rem;
 }
 .sideSpace{
-  position: fixed;
-  top: 0; /* Aligns it to the top */
-  right: 0; /* Aligns it to the left */
-  height: 97%; /* Makes the sidebar span the full height of the viewport */
-  width: 20%;
-  height: 43.75rem;
-  margin-right: 1.5rem;
-  margin-top: 5rem;
-  margin-left: 1rem;
-}
+    /* position: fixed; */
+    top: 0; /* Aligns it to the top */
+    right: 0; /* Aligns it to the left */
+    height: 97%; /* Makes the sidebar span the full height of the viewport */
+    width: 20%;
+    height: 43.75rem;
+    margin-right: 1.5rem;
+    margin-top: 5rem;
+    margin-left: 1rem;
+  }
 .wish{
   margin:0.32rem;
   height: 6rem;
@@ -541,7 +541,7 @@ body {
 
 
 
-/*Rightside bar*/
+/* /Rightside bar/ */
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
@@ -765,7 +765,6 @@ header .current-date {
 }
 
 .schedule-card {
-  position: absolute;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -861,5 +860,5 @@ header .current-date {
 .prog{
   font-size: 1rem;
   font-weight: 550;
-  margin: 1rem 0;
+  margin:1rem 0;
 }

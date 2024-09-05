@@ -24,6 +24,7 @@ app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(path.join(__dirname, "images")));
 app.use(express.static(path.join(__dirname, "function")));
 app.use('/..uploads', express.static('uploads'));
 
@@ -42,8 +43,16 @@ const connection = mysql.createConnection({
 
 // Routes
 app.get('/', (req, res) => {
-    res.render('usage.ejs'); // This is the first page where the user selects their role
+    res.render('landing.ejs'); // This is the first page where the user selects their role
 });
+
+app.get('/user',(req,res)=>{
+    res.render('usage.ejs');
+})
+
+app.post('/user',(req,res)=>{
+    res.render('usage.ejs');
+})
 
 // GET request to render the student login/signup page
 app.get('/user/student/login', (req, res) => {
@@ -52,6 +61,12 @@ app.get('/user/student/login', (req, res) => {
 
 app.get('/user/teacher/login', (req, res) => {
     res.render('loginteacher.ejs');
+});
+
+
+app.get('/home', (req, res) => {
+    const user = { id: 1 }; // Replace this with your actual user data fetching logic
+    res.render('home', { user: user });
 });
 
 
@@ -66,11 +81,17 @@ app.post('/user/student/signup', (req, res) => {
             console.error('Error inserting user data: ', err);
             res.status(500).send('Error saving user data. Please try again.');
         } else {
-            res.render('shome.ejs');
-            console.log(username);
-            console.log(id);
-            console.log(password);
-            console.log(email);
+            const { username, password } = req.body;
+            let q = `SELECT * FROM student WHERE username = ?`;
+            connection.query(q, [username], (err, result) => {
+                if (err) {
+                    console.error('Error retrieving user data: ', err);
+                    res.status(500).send('An error occurred.');
+                }else{
+                    let user = result[0];
+                    res.render('home.ejs',{user});
+                }
+            });
         }
     });
 });
@@ -84,11 +105,20 @@ app.post('/user/teacher/signup', (req, res) => {
             console.error('Error inserting user data: ', err);
             res.status(500).send('Error saving user data. Please try again.');
         } else {
-            res.send('User registered successfully!');
-            console.log(username);
-            console.log(id);
-            console.log(password);
-            console.log(email);
+                    const { username, password } = req.body;
+                    let q = `SELECT * FROM teacher WHERE username = ?`;
+                    connection.query(q, [username], (err, result) => {
+                        if (err) {
+                            console.error('Error retrieving user data: ', err);
+                            res.status(500).send('An error occurred.');
+                        }else {
+                            let user = result[0];
+                            {
+                                let id=user.id;
+                                res.render('thome.ejs',{ user });
+                            }
+                        }
+                    });
         }
     });
 });
@@ -104,9 +134,7 @@ app.post('/user/student/signin', (req, res) => {
         if (err) {
             console.error('Error retrieving user data: ', err);
             res.status(500).send('An error occurred.');
-        } else if (result.length === 0) {
-            res.send("User not found");
-        } else {
+        }else{
             let user = result[0];
             if (password !== user.password) {
                 res.render('loginstudent.ejs');
@@ -126,15 +154,13 @@ app.post('/user/teacher/signin', (req, res) => {
         if (err) {
             console.error('Error retrieving user data: ', err);
             res.status(500).send('An error occurred.');
-        } else if (result.length === 0) {
-            res.send("User not found");
-        } else {
+        }else {
             let user = result[0];
             if (password !== user.password) {
-                incorrect();
+                res.render('loginteacher.ejs');
             } else {
                 let id=user.id;
-                res.render('dashboard.ejs',{ id });
+                res.render('thome.ejs',{ user });
             }
         }
     });
@@ -159,7 +185,7 @@ app.post('/user/student/signin/:id/:destination', (req, res) => {
             if (validDestinations.includes(destination)) {
                 if (destination === 'logout') {
                     // Handle logout logic here (e.g., destroying the session)
-                    res.redirect('http://127.0.0.1:5500/index.html');
+                    res.redirect('http://localhost:3000/');
                 }else {
                     // Render the appropriate EJS template
                     res.render(`${destination}.ejs`, { user });
@@ -170,6 +196,42 @@ app.post('/user/student/signin/:id/:destination', (req, res) => {
         }
     });
 });
+
+
+
+app.post('/user/teacher/signin/:id/:destination', (req, res) => {
+    let { id, destination } = req.params;
+    console.log(`Teacher ID: ${id}, Destination: ${destination}`);
+
+    let q = `SELECT * FROM teacher WHERE id = ?`;
+    connection.query(q, [id], (err, result) => {
+        if (err) {
+            console.error('Error retrieving teacher data: ', err);
+        } else {
+            let user = result[0];
+            console.log(`Teacher Found: `, user);
+
+            // Check if the destination corresponds to a valid page
+            const validDestinations = ['dashboard', 'home', 'resources', 'myteachings', 'profile', 'logout'];
+
+            if (validDestinations.includes(destination)) {
+                if (destination === 'logout') {
+                    // Handle logout logic here (e.g., destroying the session)
+                    console.log("Logging out...");
+                    res.redirect('http://localhost:3000/');
+                } else {
+                    // Render the appropriate EJS template
+                    console.log(`Rendering teacher page: t${destination}.ejs`);
+                    res.render(`t${destination}.ejs`, { user });
+                }
+            } else {
+                console.error('Invalid destination:', destination);
+                res.status(404).send('Page not found');
+            }
+        }
+    });
+});
+
 
 
 // app.get('/user/student/signin/:id/profile/update',(req,res)=>{
@@ -184,8 +246,7 @@ app.patch('/user/student/signin/:id/profile', (req, res) => {
         FirstName,
         LastName,
         PhoneNumber,
-        Email,
-        Age,
+        dob,
         Gender,
         courseStudy,
         yearofStudy,
@@ -195,9 +256,8 @@ app.patch('/user/student/signin/:id/profile', (req, res) => {
     const updateQuery = `UPDATE student SET 
         FirstName = ?, 
         LastName = ?, 
-        PhoneNumber = ?, 
-        Email = ?, 
-        Age = ?, 
+        PhoneNumber = ?,  
+        dob = ?, 
         Gender = ?, 
         courseStudy = ?, 
         yearofStudy = ?, 
@@ -207,9 +267,8 @@ app.patch('/user/student/signin/:id/profile', (req, res) => {
     connection.query(updateQuery, [
         FirstName, 
         LastName, 
-        PhoneNumber, 
-        Email, 
-        Age, 
+        PhoneNumber,  
+        dob, 
         Gender, 
         courseStudy, 
         yearofStudy, 
@@ -234,6 +293,64 @@ app.patch('/user/student/signin/:id/profile', (req, res) => {
 });
 
 
+app.patch('/user/teacher/signin/:id/profile', (req, res) => {
+    const { id } = req.params;
+    const {
+        FirstName,
+        LastName,
+        PhoneNumber,
+        dob,
+        Gender,
+        qualification,
+        experiences,
+        area,
+        languages,
+        topics
+    } = req.body;
+    console.log(req.body);
+    const updateQuery = `UPDATE teacher SET 
+        FirstName = ?, 
+        LastName = ?, 
+        PhoneNumber = ?, 
+        dob = ?, 
+        Gender = ?, 
+        qualification = ?, 
+        experiences = ?, 
+        area = ?,
+        languages= ?,
+        topics = ?
+        WHERE id = ?`;
+
+    connection.query(updateQuery, [
+        FirstName, 
+        LastName, 
+        PhoneNumber, 
+        dob, 
+        Gender, 
+        qualification,
+        experiences,
+        area,
+        languages,
+        topics, 
+        id
+    ], (err, result) => {
+        if (err) {
+            console.error('Error updating user data:', err);
+            res.status(500).send('Error updating user data.');
+        } else {
+            const selectQuery = `SELECT * FROM teacher WHERE id = ?`;
+            connection.query(selectQuery, [id], (err, updatedUser) => {
+                if (err) {
+                    console.error('Error fetching updated user data:', err);
+                    res.status(500).send('Error fetching updated user data.');
+                } else {
+                    console.log(result);
+                    res.render('tprofile.ejs', { user: updatedUser[0] });
+                }
+            });
+        }
+    });
+});
 
 
 // Start the server

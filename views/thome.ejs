@@ -1,0 +1,216 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Skill Sphere</title>  
+  <link rel="stylesheet" href="/thome.css">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/logo1.png" type="image/x-icon">
+   <!-- Google Font Link for Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Karma:wght@300;400;500;600;700&family=Mirza:wght@400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+</head>  
+<body>  
+  <div class="flex h-screen">  
+    <!-- Sidebar -->  
+    <div class="bcg text-white p-6 hidden md:block radiussidebar">
+      <div class="flex items-center mb-8 logo"> 
+        <img src=" /logo.png" alt="Skill Sphere Logo" class="h-8 mr-2">   
+      </div>  
+      <nav>
+        <div class="sidebar-divide">
+          <!-- Top navigation items -->
+          <div>
+            <ul class="space-y-4">
+              <li class="nav-item" id="home">
+                  <img src=" /home1.png" alt="Home" class="navicons">
+                <form action="/user/teacher/signin/<%=user.id %>/home" method="post">
+                  <button type="submit" class="nav-button">
+                    Home
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item" id="dashboard">
+                  <img src=" /dashboard.png" alt="Dashboard" class="navicons">
+                <form action="/user/teacher/signin/<%=user.id %>/dashboard" method="post">
+                  <button type="submit" class="nav-button">
+                    Dashboard
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item" id="resources">
+                  <img src=" /librarybooks.png" alt="Resources" class="navicons">
+                <form action="/user/teacher/signin/<%=user.id %>/resources" method="post">
+                  <button type="submit" class="nav-button">
+                    Resources Uploaded
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item" id="myteaching">
+                  <img src=" /insertchart.png" alt="My Teachings" class="navicons">
+                <form action="/user/teacher/signin/<%=user.id %>/myteachings" method="post">
+                  <button type="submit" class="nav-button">
+                    My Teachings
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <!-- Bottom navigation items -->
+          <div class="mt-8">
+            <ul class="space-y-4">
+              <li class="nav-item" id="profile">
+                <img src="/person (1).png" alt="Profile" class="navicons">
+                <form action="/user/teacher/signin/<%=user.id %>/profile" method="post">
+                  <button type="submit" class="nav-button">
+                    Profile
+                  </button>
+                </form>
+              </li>
+              <li class="nav-item" id="logout">
+                  <img src=" /logout.png" alt="Log Out" class="navicons">
+                <form action="/user/teacher/signin/<%=user.id %>/logout" method="post">
+                  <button type="submit" class="nav-button">
+                    Log Out
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>  
+
+    <!-- Main Content -->  
+    <div class="flex-1 p-6">  
+      <header class="flex justify-between items-center mb-6">  
+        <h2 class="text-2xl font-bold">Home</h2>  
+        <div class="flex items-center">  
+          <button>
+            <div class="notification">  
+              <img src=" /notifications_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            </div>  
+          </button>
+          <div class="search-container relative">
+            <div class="search-box">
+                <input type="text" placeholder="Search....">
+            </div>
+            <div class="search-icon">
+                <img src=" /search_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Search Icon">
+            </div>
+          </div>
+          <div class="Profile-pic">
+            <div class="profile-img">
+              <img src=" /profile.jpg" alt="">
+            </div>
+            <div class="profile-name">
+              <h5><%=user.username %></h5>
+              <p>instructor
+              </p>
+            </div>
+            <div>
+              <div class="next-page">
+                <img src=" /blackright.png" alt="">
+              </div>
+            </div>
+          </div> 
+        </div>
+      </header>  
+
+      <!-- Main Content Sections -->  
+      <main>
+         <div class="main-content">
+            <div class="head">
+                <h1>Welcome  <%=user.username %></h1>
+            </div>
+            <p>Today is a great day to conduct learning activities.</p>
+            <div class="main-content-statement">
+                      <div class="tagline">
+                          Create new learning path 
+                      </div>
+                
+                  <div class="tag-img">
+                    <img src=" /blackright.png" alt="">
+                  </div>
+            </div>
+         
+
+         </div>   
+         <div class="about-us">
+                 <div class="head">
+                    <h1>About Us</h1>
+                  </div>
+                    <hr>
+                    <div class="about-us-para">
+                    <p>Welcome to Skillsphere! Our platform is rapidly growing, with a large number of students already benefiting from the resources available. This means your teaching can reach and impact more learners than ever before.
+                    </p>
+                    <p>Skillsphere is designed to be user-friendly, making it easy for you to upload diverse content—like videos, PDFs, and more—and track student progress effectively. As we continue to expand, you'll have the opportunity to reach a broader audience and make a significant impact on education.</p>
+                  </div>
+         </div>
+             
+          
+         <div class="resource-upload-options">
+            <div class="head">
+              <h1>Resource Upload Options</h1>
+            </div>
+            <hr>
+        <div class="resource-row">
+           
+              <ul>
+                  <li><i class="fas fa-video"></i>
+                    <p>Videos</p>
+             </li>
+             <li>
+                <i class="fas fa-file-pdf"></i>
+                <p>PDFs</p>
+        
+             </li>
+             <li>
+                <i class="fas fa-link"></i>
+                <p>Hyper-links</p>
+        
+             </li>
+             <li>
+                <i class="fas fa-file-word"></i>
+                <p>Word Documents</p>
+        
+             </li>
+             <li>
+                <i class="fas fa-file-alt"></i>
+                <p>.bibtex Files</p>
+        
+             </li>
+              </ul>
+          </div>
+      
+          
+      </main>
+      <footer>
+        <div class="footer-content">
+            <img src=" /logo.png">
+            <p> "Education is the most powerful weapon which you can use to change the world."</p>
+            <ul class="socials">
+                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>copyright &copy;2024 @ Skill Sphere. designed by <span> Team Node Knight</span></p>
+        </div>
+    </footer>
+      <!--Rightsidebar-->
+</body>  
+<script src="https://cdn.tailwindcss.com"></script> 
+</html>

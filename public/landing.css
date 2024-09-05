@@ -5,7 +5,7 @@
 }
 #header{
     height: 100vh;
-    background-image: url(images/pic17.jpg);
+    background-image: url(/pic17.jpg);
     background-position:right;
     background-size:auto;
     background-repeat: no-repeat;

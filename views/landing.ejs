@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-sclae=1">
     <title>E-learning landing page</title>
-    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="/landing.css">
 </head>
 
 <body>
     <div class="header-logo"> 
         <nav id="navbar">
             <div class="logo">
-                <img src="images/logo.png" alt="" class="img1">
+                <img src="/logo.png" alt="" class="img1">
             </div>
             <div class="names">
             <ul>
@@ -21,19 +21,19 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#courses">Courses</a></li>
                 <li><a href="#offer">Dashboard</a></li>
-                <li><a href="http://localhost:3000/">Sign In</a></li>
+                <li><a href="http://localhost:3000/user">Sign in</a></li>
                 <li><a href="#contact">FAQs</a></li>
             </ul>
             </div>
         </nav>
     </div>
-    <img src="images/menu.png" id="menuBtn" alt="menu-img">
+    <img src="/menu.png" id="menuBtn" alt="menu-img">
 
     <script src="landing.js"></script>
     <main>
         <section id="header">
             <div class="container">
-                <!-- <img src="images/logo (4).png" class="logo" alt=""> -->
+                <!-- <img src=" /logo (4).png" class="logo" alt=""> -->
                 <div class="header-text">
                     <h1>Welcome to SkillSphere</h1>
                     <span class="square"></span>
@@ -41,7 +41,9 @@
                             "Education is the most powerful weapon which you can use to change the world."
                         </h2>
                         <h3>---- Nelson Mandela</h3>
-                    <button class="common-btn" type="submit"><a href="http://localhost:3000/">Explore</a> </button>
+                        <form action="/user" method="post">
+                            <button class="common-btn" type="submit">Explore</button>
+                        </form>
                     <div class="line">
                         <span class="line-1"></span><br>
                         <span class="line-2"></span><br>
@@ -57,7 +59,7 @@
     
         <section id="about">
             <div class="about-left-col">
-                <img src="images/pic15.png" alt="">
+                <img src="/pic15.png" alt="">
             </div>
             <div class="about-right-col">
                 <div class="about-text">
@@ -99,22 +101,22 @@
                     </div>
                 </div>
                 <div class="feature-right-col">
-                    <img src="images/pic5.jpg" alt="">
+                    <img src=" /pic5.jpg" alt="">
                 </div>
             </div>
             <div class="courses-row">
                 <div class="courses-col">
-                    <img src="images/pic6.jpg" alt="">
+                    <img src=" /pic6.jpg" alt="">
                     <h4><strong>Progress Tracking:</strong></h4>
                     <p> Monitor your progress with detailed analytics and reports to stay on track and achieve your goals.</p>
                 </div>
                 <div class="courses-col">
-                    <img src="images/pic3.jpg" alt="">
+                    <img src=" /pic3.jpg" alt="">
                     <h4>Expert Teachers</h4>
                     <p>Learn from industry experts who are passionate about teaching</p>
                 </div>
                 <div class="courses-col">
-                    <img src="images/pic1.jpg" alt="">
+                    <img src=" /pic1.jpg" alt="">
                     <h4><strong>Interactive Courses:</strong></h4>
                     <p>Engage with interactive content that makes learning more effective and enjoyable.</p>
                 </div>
@@ -140,22 +142,22 @@
                     </div>
                 </div>
                 <div class="course-right-col">
-                    <img src="images/ic2.jpg" alt="">
+                    <img src=" /ic2.jpg" alt="">
                 </div>
             </div>
             <div class="courses-row">
                 <div class="courses-col">
-                    <img src="images/cpp.jpg" alt="">
+                    <img src=" /cpp.jpg" alt="">
                     <h4>Programming in C++</h4>
                     <p>Learn the C++ programming with hands-on exercises and real-world projects.</p>
                 </div>
                 <div class="courses-col">
-                    <img src="images/html.jpg" alt="">
+                    <img src=" /html.jpg" alt="">
                     <h4>Web Development with HTML</h4>
                     <p>Master web development with HTML, CSS, and JavaScript, and create stunning websites.</p>
                 </div>
                 <div class="courses-col">
-                    <img src="images/aiml.png" alt="">
+                    <img src=" /aiml.png" alt="">
                     <h4>Introduction to AI & ML</h4>
                     <p>Dive into artificial intelligence and machine learning with practical examples and applications.</p>
                 </div>
@@ -165,7 +167,7 @@
         <!-- offer -->
         <section id="offer">
             <div class="about-left-col">
-                <img src="images/pic11.png" alt="">
+                <img src=" /pic11.png" alt="">
             </div>
             <div class="about-right-col">
                 <div class="about-text">
@@ -185,17 +187,17 @@
             </div>
             <div class="courses-row">
                 <div class="courses-col">
-                    <img src="images/pic12.png" alt="">
+                    <img src=" /pic12.png" alt="">
                     <h4>Achievements&Badges</h4>
                     <p> View your earned badges as you complete courses and reach milestones.</p>
                 </div>
                 <div class="courses-col">
-                    <img src="images/pic9.png" alt="">
+                    <img src=" /pic9.png" alt="">
                     <h4>Completion Times&Time spent</h4>
                     <p>Get estimates on how long it will take to complete each course and plan your study sessions accordingly.</p>
                 </div>
                 <div class="courses-col">
-                    <img src="images/pic11.jpg" alt="">
+                    <img src=" /pic11.jpg" alt="">
                     <h4>Learning Path Customization</h4>
                     <p>Create and modify personalized learning paths with ease, incorporating various resources and media types.</p>
                 </div>
@@ -227,7 +229,7 @@
                     </section> 
                 </div>
                 <div class="contact-right-col">
-                    <img src="images/pic4.jpg" alt="">
+                    <img src=" /pic4.jpg" alt="">
                 </div>
             </div>
         </section>
@@ -272,8 +274,10 @@
                         <small>copyright 2024</small>
                     </div>
                     <div class="footer-logo">
-                        <img src="images/logo.png" alt="">
-                        <button class="common-btn"><a href="http://localhost:3000/">Start Now !</a></button>
+                        <img src=" /logo.png" alt="">
+                        <form action="/user" method="post">
+                            <button class="common-btn" type="submit">Start Now!</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -282,7 +286,7 @@
     </section>
 
     <!-- smooth scroll -->
-    <script src="smooth-scroll.js"></script>
+    <script src="/smooth-scroll.js"></script>
     <script>
         var scroll = new SmoothScroll('a[href*="#"]');
     </script>

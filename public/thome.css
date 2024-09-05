@@ -1,23 +1,12 @@
 /* General Styles */ 
-/*sidebar and nav*/ 
+/* /sidebar and nav/  */
 body {  
-  font-family:"Inter", sans-serif;
+  font-family:"poppins", sans-serif;
   margin: 0;  
   padding: 0;  
   background-color: #fff;
 }  
 
-
-header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  z-index: 1000;
-  margin-left:24rem;
-  width: 75%;
-  padding-right: 2rem;
-}
 
 .container {  
     display: flex;  
@@ -36,23 +25,13 @@ header{
     /* background-color:rgb(31 41 55 );  */
     background-color: #fff;
   }
-  .radiussidebar{
-    margin: 0;
-    margin: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.4);
-    position: fixed; /* Makes the sidebar fixed */
-    top: 0; /* Aligns it to the top */
-    left: 0; /* Aligns it to the left */
-    height: 97%; /* Makes the sidebar span the full height of the viewport */
-    width: 23%; 
+ .radiussidebar{
+  margin: 0;
+  margin: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 1.5rem rgba(0, 0, 0, 0.4);
+  width: 300px;
  }
-main{
-    overflow: scroll;
-    margin-left: 23rem;
-    margin-top: 2rem;
-    width: 77%;
-}
 .sidebar a {  
   color: #fff;  
   text-decoration: none;  
@@ -67,6 +46,7 @@ main{
 }
 
 
+
 .navicons{
   width: 1rem;
   height: 1rem;
@@ -78,10 +58,8 @@ main{
 
 /* Main Content Styles */  
 .main-content {  
-    flex: 1; /* Adjust according to sidebar width + padding */
-    /* padding: 20px; */
-    height: 100vh; /* Full height of the viewport */
-    overflow-y: auto; /* Allows vertical scrolling */
+  flex: 1;  
+  padding: 20px;  
 }  
 
 
@@ -237,7 +215,7 @@ padding-bottom: 0.5rem; /* Equivalent to py-2 */
 border-radius: 0.375rem; /* Equivalent to rounded-md */
 text-align: center; /* Center the text */
 display: inline-block; /* Make the button inline-block for centering */
-width: 60%; /* Set button width to 60% *//* Center the button horizontally */
+width: 60%; /* Set button width to 60% // Center the button horizontally */
 transition: background-color 0.2s ease-in-out;
 margin-left: 20%;
 font-weight: 500;
@@ -366,29 +344,6 @@ height: 2rem;
     cursor: pointer;
 }
 }
-
-
-
-/* Search bar  */
-
-.search-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  .search-box input {
-    width: 100%;
-    padding: 10px;
-    transition: width 0.3s ease;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .search-icon img{
-    width: 2rem;
-    height: 2rem;
-  }
   
   /* For mobile screens */
   @media (max-width: 600px) {
@@ -406,28 +361,124 @@ height: 2rem;
         right: 10px;
         cursor: pointer;
     }
-  }
+    
+    }
+    .resource-upload-options {
+       
+        margin-top: 20px;
+      }
+      .resource-row{
+        margin-top: 20px;
+        margin-left: 1rem;
+        
+      }
+      
+      
+      .resource-type {
+       
+        width: 120px;
+        margin: 10px;
+        
+      }
+      .resource-row ul li{
+          display: flex;
+          margin-top: 1rem;
+      }
+      .resource-row ul li i{
+        margin-top: 3px;
+      }
+      .resource-row ul li p{
+        margin-left: 1rem;
+      }
+      .resource-type img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 10px;
+      }
+      .resource-type i {
+        font-size: 1.5rem;
+        color: #555;
+        margin-right: 10px;
+      }
+    
+      .resource-type p {
+        font-size: 1rem;
+        color: #333;
+      }
+      
 
 
+/*-------footer-------*/
 
-/* Main content ******************************************************************************/
-.main-content{
+footer{
+    font-family: "poppins",sans-serif;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #133559;
+    height: auto;
+    width: 103%;
+    font-family: "Open Sans";
+    padding-top: 40px;
+    color: #fff;
+}
+.footer-content{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    padding: 0px;
-    overflow: scroll;
-    width: 99%;
+    text-align: center;
 }
-.main-content div{
-    padding-top: 0.5rem;
+.footer-content img{
+    width: 200px;
+    height: 35px;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.footer-content p{
+    max-width: 500px;
+    margin: 10px auto;
+    line-height: 28px;
+    font-size: 14px;
+}
+.socials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+.socials li{
+    margin: 0 10px;
+}
+.socials a{
+    text-decoration: none;
+    color: #fff;
+}
+.socials a i{
+    font-size: 1.1rem;
+    transition: color .4s ease;
+
+}
+.socials a:hover i{
+    color: #0080ff;
 }
 
-.welcome{
-    padding-top: 0px;
+.footer-bottom{
+    background: #042b45;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
 }
-.welcome p{
-    font-size: 2rem;
-    font-weight: 550;
+.footer-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.footer-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
 }
 
 .main-content-statement {
@@ -444,8 +495,7 @@ height: 2rem;
   border: 1px solid black;
   font-size: 10px;
   background-color:  white;
-  padding-top: 0;
-
+  padding-bottom: 2rem;
 }
 
 .main-content-statement:hover{
@@ -456,12 +506,11 @@ height: 2rem;
 
 .head{
   padding-top: 0px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 550;
 }
 
 .tagline{
-  padding-top: 0;
   padding-left: 10px;
   font-size: 18px;
   font-weight: 500;
@@ -473,129 +522,20 @@ height: 2rem;
   margin-top: 0rem;
   margin-left: 20rem;
 }
-
-.explore-courses-statement{
-    display: flex;
-    justify-content: space-between;
+hr{
+  border: 1px solid black;
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
 }
-
-.explore-courses-statement div p{
-    font-size: 1.4rem;
-    padding-bottom: 1rem;
+.about-us-para{
+  margin-top: 1rem;
+  font-weight: 300;
 }
-
-.explore-courses-statement div a{
-    color: blue;
-    padding-right: 1rem;
+.about-us-para p{
+  margin-bottom: 1rem;
+  font-size: 17px;
+  font-weight: 300;
 }
-
-.explore-courses-conatiner{
-  /* display: flex;
-  flex-wrap: wrap; */
-  display: grid;
-  grid-template-columns: repeat(3, minmax(18rem, 1fr));
-  position: relative;
-  gap:1.5rem;
-  /* background:linear-gradient(to bottom,rgb(44, 43, 43),rgb(81, 81, 81)); */
-  background-color: #fff;
-  border-radius:0.5rem;
-  }
-
-  .course-card{
-    padding: 1rem;
-    /* border-radius: 2rem; */
-    /* box-shadow: 0 10px 20px rgba(97, 95, 95, 0.1); */
-  }
-  .course-card img{
-    width: 100%;
-    height: 13rem;
-    padding: 0;
-    /* border-radius: 1rem; */
-    border: 1px solid #4a4949;
-    grid-template-rows: 1fr;
-    gap: 1px;
-    margin-top: 2rem;
-    box-sizing: border-box;
-  }
-
-.button-box{
-  color: #fff;
-  background-color: #0080ff;
-  width: 28%;
-  height: 12%;
-  display: flex;
-  margin: 0.3rem;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid white;
-  border-radius: 0.5rem;
-}
-
-
-.button-box button{
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding-bottom: 0.6rem;
-}
-
-.button-box:hover{
-  transition: 0.2s ease-in-out;
-  transform: scale(1.1);
-}
-
-
-.course-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0);
-}
-
-
-/* For screens between 768px and 1230px, show 2 cards per row */
-@media (min-width: 769px) and (max-width: 1230px) {
-  .explore-courses-container {
-    grid-template-columns: repeat(2, minmax(18rem, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .explore-courses-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-.side-content{
-    width: 25%;
-
-}
-
-/* Transparent Scrollbar for WebKit Browsers */
-::-webkit-scrollbar {
-  width: 5px; /* Width of the scrollbar */
-}
-
-::-webkit-scrollbar-track {
-  background-color: transparent; /* Background of the track */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); /* Thumb with slight transparency */
-  border-radius: 2px; /* Rounded corners for the scrollbar thumb */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.4); /* Darker thumb when hovered */
-}
-
-
-.explore-button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0080ff;
-  margin-left: 43%;
-  width: max-content;
-  padding:0.2rem 1rem;
-  margin-top: 3rem;
-  color: #fff;
-  font-weight: 550;
-  border-radius: 0.5rem;
+.about-us{
+  margin-left: 0.6rem;
 }
