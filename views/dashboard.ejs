@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Skill Sphere</title>  
   <link rel="stylesheet" href="/style.css">   
+  <link rel="icon" href="/logo1.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- Google Font Link for Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Karma:wght@300;400;500;600;700&family=Mirza:wght@400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
@@ -134,7 +135,10 @@
                    <p class="instructor">Jeff Bezos</p>
                    <p class="completion" style="margin-bottom: 0.5rem;">05/11</p>
                    </div>
-                   <button>Course Analysis</button>
+
+                   <form action="/user/student/signin/<%= user.id %>/dashboard/class" method="post">
+                    <button>Resume</button>
+                   </form>
                 </div>
               </div>
               <div class="course-2">
@@ -156,7 +160,9 @@
                   <p class="instructor">Shradha Khapra</p>
                   <p class="completion" style="margin-bottom: 0.5rem;">00/20</p>
                   </div>
-                  <button>Course Analysis</button>
+                  <form action="/user/student/signin/<%= user.id %>/dashboard/class" method="post">
+                    <button>Resume</button>
+                   </form>
                </div>
               </div>
             </div>
@@ -227,11 +233,89 @@
           </div>
         </div>
       </main>
-      <% const stdid=user.id %>
+      <% const std=user.id %>
       <!--Rightsidebar-->
 </body>  
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/script.js"></script>
+<script>
+  const studentId = '<%= user.id %>';
+
+  console.log("Student ID:", studentId);
+
+  fetch('/student-progress', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ studentId })
+  })
+  .then(response => response.json())
+  .then(responseData => {
+      // Log the entire response data
+      console.log("Progress data:", responseData);
+
+      // Check if progress exists and is an array
+      if (Array.isArray(responseData.progress)) {
+          // Log each progress item
+          responseData.progress.forEach(item => {
+              console.log(`Day: ${item.day}, Progress: ${item.dailyProgress}`);
+          });
+
+          // Create the chart data object
+          const chartData = {
+              labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+              datasets: [{
+                  label: 'Daily Progress',
+                  data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => {
+                      const progress = responseData.progress.find(dp => dp.day === day);
+                      return progress ? parseFloat(progress.dailyProgress) : 0;
+                  }),
+                  backgroundColor: '#0080ff',
+                  borderColor: 'rgba(75, 192, 192, 1)',
+                  borderWidth: 1,
+                  borderRadius: 5
+              }]
+          };
+
+          // Debug: Print the chart data
+          console.log("Chart data:", chartData);
+
+          // Configuration options for the bar chart
+          const config = {
+              type: 'bar',
+              data: chartData,
+              options: {
+                  scales: {
+                      x: {
+                          grid: {
+                              display: false
+                          }
+                      },
+                      y: {
+                          beginAtZero: true,
+                          grid: {
+                              display: false
+                          },
+                          max: 100
+                      }
+                  }
+              }
+          };
+
+          // Render the bar chart with the updated data
+          const myBarChart = new Chart(
+              document.getElementById('myBarChart'),
+              config
+          );
+      } else {
+          console.error("Invalid progress data format:", responseData.progress);
+      }
+  })
+  .catch(error => console.error("Error fetching progress data:", error));
+</script>
+
+
 <script src="https://cdn.tailwindcss.com"></script> 
 <script src="/calender.js" defer></script>
 </html>

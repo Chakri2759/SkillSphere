@@ -175,47 +175,6 @@ function updateStudentProgress(newProgress) {
 
 
   // Data for the bar chart
-  Chart.defaults.elements.bar.borderRadius = 5;
-  const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-          label: 'Daily progress',
-          data: [60, 50, 70, 100, 30, 70, 10],  // Example data
-          backgroundColor: '#0080ff',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
-          borderradius:2
-      }]
-  };
-
-  // Configuration options for the bar chart
-  const config = {
-      type: 'bar',
-      data: data,
-      options: {
-          scales: {
-            x: {
-                  grid: {
-                      display: false  // Remove grid lines on the x-axis
-                  }
-              },
-              y: {
-                  beginAtZero: true,
-                  grid: {
-                      display: false  // Remove grid lines on the y-axis
-                  },
-                  max:100
-              }
-          }
-      }
-  };
-
-  // Render the bar chart
-  const myBarChart = new Chart(
-      document.getElementById('myBarChart'),
-      config
-  );
-
   const pieData = {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
       datasets: [{

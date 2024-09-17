@@ -393,6 +393,69 @@ app.get('/progress-by-weekday', (req, res) => {
     });
 });
 
+app.post('/student-progress', (req, res) => {
+    const { studentId } = req.body;  // Extract the studentId from the request body
+
+    getStudentProgressById(studentId, (err, studentProgress) => {
+        if (err) {
+            console.error("Error fetching student progress:", err);
+            res.status(500).json({ error: 'Error fetching student progress' });
+        } else {
+            // Send the progress data back to the client as JSON
+            res.json({ progress: studentProgress });
+        }
+    });
+});
+
+// Function to simulate database fetch (replace this with actual database query)
+function getStudentProgressById(studentId, callback) {
+    const query = `
+        SELECT weekday, SUM(progress_percentage) AS dailyProgress
+        FROM student_progress
+        WHERE student_id = ?
+        GROUP BY weekday
+        ORDER BY FIELD(weekday, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
+    `;
+
+    db.query(query, [studentId], (err, rows) => {
+        if (err) {
+            console.error('Error fetching student progress:', err);
+            return callback(err, null);
+        }
+
+        console.log('Rows fetched from database:', rows); // Debugging line
+
+        // Create an array with all weekdays initialized to zero
+        const dailyProgress = [
+            { day: 'Mon', dailyProgress: 0 },
+            { day: 'Tue', dailyProgress: 0 },
+            { day: 'Wed', dailyProgress: 0 },
+            { day: 'Thu', dailyProgress: 0 },
+            { day: 'Fri', dailyProgress: 0 },
+            { day: 'Sat', dailyProgress: 0 },
+            { day: 'Sun', dailyProgress: 0 }
+        ];
+
+        // Update array with actual data from the database
+        rows.forEach(row => {
+            console.log('Processing row:', row); // Debugging line
+            const index = dailyProgress.findIndex(dp => dp.day === row.weekday);
+            if (index !== -1) {
+                // Convert dailyProgress to integer
+                dailyProgress[index].dailyProgress = parseInt(row.dailyProgress, 10);
+            }
+        });
+
+        console.log('Daily progress after update:', dailyProgress); // Debugging line
+
+        callback(null, dailyProgress);
+    });
+}
+
+
+app.post('/user/student/signin/:id/dashboard/class',(req,res)=>{
+     res.send("hi ");
+})
 
 // Start the server
 app.listen(port, () => {
