@@ -127,7 +127,7 @@ searchInput.addEventListener('blur', function() {
 
 // progressBar Working
 
-let studentProgress = 69; // This should be updated based on the actual work completed by the student
+let studentProgress = 40; // This should be updated based on the actual work completed by the student
 let val = studentProgress; // Set val to the student's progress
 
 function completeTask() {
@@ -264,5 +264,3 @@ function updateStudentProgress(newProgress) {
 
 
 // schedule card
-
- 

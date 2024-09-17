@@ -2,6 +2,7 @@ const mysql = require('mysql2');
 const express = require('express');
 const app = express();
 const path = require("path");
+const bodyParser = require('body-parser');
 const methodOverride = require("method-override");
 const { v4: uuid } = require("uuid");
 const session = require('express-session');
@@ -33,12 +34,20 @@ app.use('/..uploads', express.static('uploads'));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
-// Database connection setup
-const connection = mysql.createConnection({
+// Database db setup
+const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     database: 'SkillSphere',
     password: 'pheonix4151'
+});
+
+// Connect to the database
+db.connect(err => {
+    if (err) {
+        throw err;
+    }
+    console.log('MySQL Connected...');
 });
 
 // Routes
@@ -76,14 +85,14 @@ app.post('/user/student/signup', (req, res) => {
     const { username, email, password } = req.body;
     let id = uuid();
     const query = `INSERT INTO student (id, username, email, password) VALUES (?, ?, ?, ?)`;
-    connection.query(query, [id, username, email, password], (err, results) => {
+    db.query(query, [id, username, email, password], (err, results) => {
         if (err) {
             console.error('Error inserting user data: ', err);
             res.status(500).send('Error saving user data. Please try again.');
         } else {
             const { username, password } = req.body;
             let q = `SELECT * FROM student WHERE username = ?`;
-            connection.query(q, [username], (err, result) => {
+            db.query(q, [username], (err, result) => {
                 if (err) {
                     console.error('Error retrieving user data: ', err);
                     res.status(500).send('An error occurred.');
@@ -100,14 +109,14 @@ app.post('/user/teacher/signup', (req, res) => {
     const { username, email, password } = req.body;
     let id = uuid();
     const query = `INSERT INTO teacher (id, username, email, password) VALUES (?, ?, ?, ?)`;
-    connection.query(query, [id, username, email, password], (err, results) => {
+    db.query(query, [id, username, email, password], (err, results) => {
         if (err) {
             console.error('Error inserting user data: ', err);
             res.status(500).send('Error saving user data. Please try again.');
         } else {
                     const { username, password } = req.body;
                     let q = `SELECT * FROM teacher WHERE username = ?`;
-                    connection.query(q, [username], (err, result) => {
+                    db.query(q, [username], (err, result) => {
                         if (err) {
                             console.error('Error retrieving user data: ', err);
                             res.status(500).send('An error occurred.');
@@ -130,7 +139,7 @@ app.post('/user/teacher/signup', (req, res) => {
 app.post('/user/student/signin', (req, res) => {
     const { username, password } = req.body;
     let q = `SELECT * FROM student WHERE username = ?`;
-    connection.query(q, [username], (err, result) => {
+    db.query(q, [username], (err, result) => {
         if (err) {
             console.error('Error retrieving user data: ', err);
             res.status(500).send('An error occurred.');
@@ -150,7 +159,7 @@ app.post('/user/student/signin', (req, res) => {
 app.post('/user/teacher/signin', (req, res) => {
     const { username, password } = req.body;
     let q = `SELECT * FROM teacher WHERE username = ?`;
-    connection.query(q, [username], (err, result) => {
+    db.query(q, [username], (err, result) => {
         if (err) {
             console.error('Error retrieving user data: ', err);
             res.status(500).send('An error occurred.');
@@ -172,7 +181,7 @@ app.post('/user/student/signin/:id/:destination', (req, res) => {
     console.log(`User ID: ${id}, Destination: ${destination}`);
 
     let q = `SELECT * FROM student WHERE id = ?`;
-    connection.query(q, [id], (err, result) => {
+    db.query(q, [id], (err, result) => {
         if (err) {
             console.error('Error retrieving user data: ', err);
         } else {
@@ -204,7 +213,7 @@ app.post('/user/teacher/signin/:id/:destination', (req, res) => {
     console.log(`Teacher ID: ${id}, Destination: ${destination}`);
 
     let q = `SELECT * FROM teacher WHERE id = ?`;
-    connection.query(q, [id], (err, result) => {
+    db.query(q, [id], (err, result) => {
         if (err) {
             console.error('Error retrieving teacher data: ', err);
         } else {
@@ -264,7 +273,7 @@ app.patch('/user/student/signin/:id/profile', (req, res) => {
         college = ?
         WHERE id = ?`;
 
-    connection.query(updateQuery, [
+    db.query(updateQuery, [
         FirstName, 
         LastName, 
         PhoneNumber,  
@@ -280,7 +289,7 @@ app.patch('/user/student/signin/:id/profile', (req, res) => {
             res.status(500).send('Error updating user data.');
         } else {
             const selectQuery = `SELECT * FROM student WHERE id = ?`;
-            connection.query(selectQuery, [id], (err, updatedUser) => {
+            db.query(selectQuery, [id], (err, updatedUser) => {
                 if (err) {
                     console.error('Error fetching updated user data:', err);
                     res.status(500).send('Error fetching updated user data.');
@@ -321,7 +330,7 @@ app.patch('/user/teacher/signin/:id/profile', (req, res) => {
         topics = ?
         WHERE id = ?`;
 
-    connection.query(updateQuery, [
+    db.query(updateQuery, [
         FirstName, 
         LastName, 
         PhoneNumber, 
@@ -339,7 +348,7 @@ app.patch('/user/teacher/signin/:id/profile', (req, res) => {
             res.status(500).send('Error updating user data.');
         } else {
             const selectQuery = `SELECT * FROM teacher WHERE id = ?`;
-            connection.query(selectQuery, [id], (err, updatedUser) => {
+            db.query(selectQuery, [id], (err, updatedUser) => {
                 if (err) {
                     console.error('Error fetching updated user data:', err);
                     res.status(500).send('Error fetching updated user data.');
@@ -353,7 +362,39 @@ app.patch('/user/teacher/signin/:id/profile', (req, res) => {
 });
 
 
+// API to insert student progress data
+app.post('/insert-progress', (req, res) => {
+    const { student_id, subject_id, progress_percentage } = req.body;
+    const date = new Date();
+    
+    const query = `
+        INSERT INTO student_progress (student_id, subject_id, progress_percentage, date, weekday)
+        VALUES (?, ?, ?, CURDATE(), DAYNAME(CURDATE()))
+    `;
+
+    db.query(query, [student_id, subject_id, progress_percentage], (err, result) => {
+        if (err) throw err;
+        res.send('Progress data inserted successfully');
+    });
+});
+
+// API to get average progress per weekday
+app.get('/progress-by-weekday', (req, res) => {
+    const query = `
+        SELECT weekday, AVG(progress_percentage) AS average_progress
+        FROM student_progress
+        GROUP BY weekday
+        ORDER BY FIELD(weekday, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
+    `;
+
+    db.query(query, (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+
 // Start the server
 app.listen(port, () => {
-    console.log(`App is listening on port ${port}`);
+    console.log(`App is listening on port http://localhost:${port}`);
 });

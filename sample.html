@@ -1,77 +1,234 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reading Time Tracker</title>
-</head>
-<body>
-    <h1>Topic: Introduction to JavaScript</h1>
-    <p>
-        JavaScript is a programming language that is commonly used in web development...
-    </p>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Skill Sphere</title>  
+  <link rel="stylesheet" href="sample.css">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Google Font Link for Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Karma:wght@300;400;500;600;700&family=Mirza:wght@400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>  
+<body>  
+  <div class="flex h-screen">  
+    <!-- Sidebar -->  
+    <div class="bcg text-white p-6 hidden md:block radiussidebar">  
+      <div class="flex items-center mb-8 logo">  
+        <img src="/logo.png" alt="Skill Sphere Logo" class="h-8 mr-2">
+      </div>  
+      <nav>  
+        <div class="sidebar-divide">
+          <!-- nav keys up -->
+          <div>
+            <ul class="space-y-4">  
+              <li class="nav-item" id="home"><img src=" /home1.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/home" method="post"><button type="submit">Home</button></form></li>  
+              <li class="nav-item" id="dashboard"><img src="/dashboard.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/dashboard" method="post"><button type="submit">Dashboard</button></form></li>  
+              <li class="nav-item" id="courses"><img src="/librarybooks.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/courses" method="post"><button type="submit">Courses</button></form></li>  
+              <li class="nav-item" id="mylearning"><img src="/insertchart.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/mylearning" method="post"><button type="submit">My Learning</button></form></li>  
+            </ul>
+          </div> 
+          <!-- Analysis -->
+          <div class="analysis mt-8">
+                <div class="upgrade-para">
+                    <p id="first-analysis" class="text-lg font-semibold">Analysis</p>
+                    <p class="text-sm text-gray-300">Know your knowledge level</p>
+                </div>
+                <div class="upgrade-button mt-4">
+                    <button>Analysis</button>
+                </div>
+          </div>
+          <!-- nav keys bottom -->
+          <div class="mt-8">
+            <ul class="space-y-4">  
+              <li class="nav-item"><img src="/person (1).png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/profile" method="post"><button type="submit">Profile</button></form></li>  
+              <li class="nav-item"><img src="/logout.png" alt="" class="navicons"><form action="/user/student/signin/<%=user.id %>/logout" method="post"><button type="submit">Log out</button></form></li>  
+            </ul>  
+          </div>
+        </div>
+      </nav>  
+      
+    </div>  
 
-    <script>
-        // 1. Initialize variables to store time data
-        let startTime, endTime;            // To track the start and end time of reading
-        let totalReadingTime = 0;          // To accumulate the total reading time
-        let lastActivityTime;              // To track the last time the user was active
-        const inactivityThreshold = 60000; // 1 minute of inactivity (in milliseconds)
+    <!-- Main Content -->  
+    <main>
+    <div class="flex-1 p-6">  
+      <header class="flex justify-between items-center mb-6">  
+        <h2 class="text-2xl font-bold">Dashboard</h2>  
+        <div class="flex items-center">  
+          <button>
+            <div class="notification">  
+              <img src="/notifications_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="">
+            </div>  
+          </button>
+          <div class="search-container relative">
+            <div class="search-box">
+                <input type="text" placeholder="Search....">
+            </div>
+            <div class="search-icon">
+                <img src="/search_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Search Icon">
+            </div>
+          </div>
+          <div class="Profile-pic">
+            <div class="profile-img">
+              <img src="/profile.jpg" alt="">
+            </div>
+            <div class="profile-name">
+              <h5><%=user.username %></h5>
+              <p>Student</p>
+            </div>
+            <div>
+              <div class="next-page">
+                <img src="/blackright.png" alt="">
+              </div>
+            </div>
+          </div> 
+        </div>
+      </header>  
 
-        // 2. Function to start the reading timer when the page loads
-        function startReading() {
-            startTime = new Date().getTime(); // Capture the current time as the start time
-            lastActivityTime = startTime;     // Initialize last activity time with start time
-            console.log('Reading started at:', new Date(startTime));
-        }
+      <!-- Main Content Sections -->  
+        <div class="totalSpace"><!--total main body containing course details and calender-->
+          <div class="mainSpace"><!--course details-->
+            <div class="wish">
+              <h1>Welcome,<%=user.username %>!</h1>
+              <p>Today is a great day to conduct learning activities</p>
+            </div>
+            <div class="badge">
+              <div class="Achievements"><h1>My Achievements</h1></div>
+              <div class="badge_img">
+                <img src="/bronze.png">
 
-        // 3. Function to stop the reading timer when the page is closed or navigated away
-        function stopReading() {
-            endTime = new Date().getTime(); // Capture the current time as the end time
-            const currentSessionTime = endTime - startTime; // Calculate the session time
-            totalReadingTime += currentSessionTime - getInactiveTime(); // Add to total reading time after subtracting inactive time
-            console.log('Reading ended at:', new Date(endTime));
-            console.log('Total reading time (ms):', totalReadingTime);
-        }
+                <img src="/Gold.png">
+                <img src="/diamond.png">
+              </div>
+            </div>
+            <br>
+            <div class="course-details">
+              <p style="font-size: 1rem; font-weight: 550;">Current Courses</p>
+              <a href="">View all</a>
+            </div>
+            <hr style="border-bottom: 1px solid black;">
+            <br>
+            <div class="container">
+              <div class="course-1">
+                <div class="circular-loader 1">
+                  <svg class="loader-svg" viewBox="0 0 36 36">
+                    <path class="loader-bg"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="loader-progress"
+                          stroke-dasharray="0, 100"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  </svg>
+                  <div class="loader-text">
+                    <span id="loader-percentage">40%</span>
+                  </div>
+                </div>
+                <div class="progressDetails">
+                   <div>
+                  <p class="language">Programming in C++</p>
+                   <p class="instructor">Jeff Bezos</p>
+                   <p class="completion" style="margin-bottom: 0.5rem;">05/11</p>
+                   </div>
+                   <button>Course Analysis</button>
+                </div>
+              </div>
+              <div class="course-2">
+                <div class="circular-loader 2">
+                  <svg class="loader-svg" viewBox="0 0 36 36">
+                    <path class="loader-bg"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="loader-progress"
+                          stroke-dasharray="0, 100"
+                          d="M18 2.0845a 15.9155 15.9155 0 0 1 0 31.831a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  </svg>
+                  <div class="loader-text">
+                    <span id="loader-percentage">0%</span>
+                  </div>
+                </div>
+                <div class="progressDetails">
+                  <div>
+                  <p class="language">Web Development</p>
+                  <p class="instructor">Shradha Khapra</p>
+                  <p class="completion" style="margin-bottom: 0.5rem;">09/20</p>
+                  </div>
+                  <button>Course Analysis</button>
+               </div>
+              </div>
+            </div>
+            <p class="prog">Weekly Progress</p>
+            <hr style="border-bottom: 1px solid black;">
+            <br>
+            <div class="graphs">
+                <div class="bar-graph">
+                    <canvas id="myBarChart"></canvas>
+                </div>
+                <div class="pie-graph">
+                   <canvas id="myPieChart"></canvas>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br>
+          </div>
+        
 
-        // 4. Function to update the last activity time whenever the user interacts with the page
-        function updateActivityTime() {
-            lastActivityTime = new Date().getTime(); // Update the last activity time to the current time
-        }
+          <div class="sideSpace">
+            <div class="calendar-bar">
+              <div class="wrapper">
+                <header>
+                  <p class="current-date"></p>
+                  <div class="icons">
+                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                    <span id="next" class="material-symbols-rounded">chevron_right</span>
+                  </div>
+                </header>
+                <!-- <div class="calendar-container"> -->
+                <div class="calendar">
+                  <ul class="weeks">
+                    <li class="week-day">Sun</li>
+                    <li class="week-day">Mon</li>
+                    <li class="week-day">Tue</li>
+                    <li class="week-day">Wed</li>
+                    <li class="week-day">Thu</li>
+                    <li class="week-day">Fri</li>
+                    <li class="week-day">Sat</li>
+                  </ul>
+                  <ul class="days"></ul>
+                  <div class="schedule-card" id="scheduleCard"></div>
+                </div>
+                </div>
+              </div>
 
-        // 5. Function to calculate inactive time (time when the user was idle)
-        function getInactiveTime() {
-            const currentTime = new Date().getTime(); // Get the current time
-            const inactiveTime = currentTime - lastActivityTime > inactivityThreshold
-                ? currentTime - lastActivityTime // If the user was inactive for longer than the threshold, count it as inactive time
-                : 0; // Otherwise, consider no inactivity
-            return inactiveTime;
-        }
+              <div class="next-events">
+            <h3>Next Event</h3>
+            <ul class="event-list">
+              <li class="event-item">
+                <span class="event-date">17</span>
+                <div class="event-details">
+                  <h4>UI Workshop 101</h4>
+                  <p>09:30 AM - Agung Harlakso</p>
+                </div>
+              </li>
+              <li class="event-item">
+                <span class="event-date">18</span>
+                <div class="event-details">
+                  <h4>UI Workshop 101</h4>
+                  <p>09:30 AM - Agung Harlakso</p>
+                </div>
+              </li>
+            </ul>
+          </div>
 
-        // 6. Event listeners to detect user activity (mouse, scroll, and key press events)
-        window.addEventListener('mousemove', updateActivityTime);
-        window.addEventListener('scroll', updateActivityTime);
-        window.addEventListener('keydown', updateActivityTime);
 
-        // 7. Start the reading timer when the page is loaded
-        window.addEventListener('load', startReading);
-
-        // 8. Stop the reading timer and potentially send data to the server when the page is unloaded
-        window.addEventListener('beforeunload', () => {
-            stopReading(); 
-            sendReadingTimeToServer(); 
-        });
-
-        // 9. Optional: Function to send the reading time data to a server (backend integration)
-        function sendReadingTimeToServer() {
-            fetch('/save-reading-time', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ readingTime: totalReadingTime }), // Send the total reading time as JSON
-            });
-        }
-    </script>
-</body>
+            </div> 
+          </div>
+        </div>
+      </main>
+      <!--Rightsidebar-->
+</body>  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/function/script.js"></script>
+<script src="https://cdn.tailwindcss.com"></script> 
+<script src="/function/calender.js" defer></script>
 </html>

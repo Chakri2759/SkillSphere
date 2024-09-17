@@ -4,13 +4,11 @@
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Skill Sphere</title>  
-  <link rel="stylesheet" href="/style.css"> 
-  <link rel="icon" href="/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="/style.css">   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <!-- Google Font Link for Icons -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Karma:wght@300;400;500;600;700&family=Mirza:wght@400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -20,7 +18,7 @@
     <!-- Sidebar -->  
     <div class="bcg text-white p-6 hidden md:block radiussidebar">  
       <div class="flex items-center mb-8 logo">  
-        <img src="/logo.png" alt="Skill Sphere Logo" class="h-8 mr-2">  
+        <img src="/logo.png" alt="Skill Sphere Logo" class="h-8 mr-2">
       </div>  
       <nav>  
         <div class="sidebar-divide">
@@ -55,11 +53,11 @@
         </div>
       </nav>  
       
-    </div>    
+    </div>  
 
     <!-- Main Content -->  
-    <main class="main">
-    <div class="flex-1 ">  
+    <main>
+    <div class="flex-1 p-6">  
       <header class="flex justify-between items-center mb-6">  
         <h2 class="text-2xl font-bold">Dashboard</h2>  
         <div class="flex items-center">  
@@ -156,7 +154,7 @@
                   <div>
                   <p class="language">Web Development</p>
                   <p class="instructor">Shradha Khapra</p>
-                  <p class="completion" style="margin-bottom: 0.5rem;">09/20</p>
+                  <p class="completion" style="margin-bottom: 0.5rem;">00/20</p>
                   </div>
                   <button>Course Analysis</button>
                </div>
@@ -187,6 +185,7 @@
                     <span id="next" class="material-symbols-rounded">chevron_right</span>
                   </div>
                 </header>
+                <!-- <div class="calendar-container"> -->
                 <div class="calendar">
                   <ul class="weeks">
                     <li class="week-day">Sun</li>
@@ -199,8 +198,8 @@
                   </ul>
                   <ul class="days"></ul>
                   <div class="schedule-card" id="scheduleCard"></div>
-                </div>
-              </div>
+                </div>
+                </div>
               </div>
 
               <div class="next-events">
@@ -228,6 +227,7 @@
           </div>
         </div>
       </main>
+      <% const stdid=user.id %>
       <!--Rightsidebar-->
 </body>  
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
